@@ -7,15 +7,8 @@
 */
 
 import { Container } from '@/components'
-import { getAllCharacters, getCharacterBySlug } from '@/lib/characters'
+import {  getCharacterBySlug } from '@/lib/characters'
 import Image from 'next/image'
-
-export const dynamicParams = false
-
-export async function generateStaticParams() {
-  const { characters } = await getAllCharacters()
-  return characters.map(character => ({ slug: character.slug }))
-}
 
 export default async function Page({ params }) {
   const { character } = await getCharacterBySlug(params.slug)
