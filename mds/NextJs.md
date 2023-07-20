@@ -1,5 +1,5 @@
 # Nextjs
-
+https://www.tutorialspoint.com/nextjs/nextjs_pages.htm
 ### 1. Rendering
 > **React** - UI client side - browser download and execute JS.<br/> **NextJS** - server side
 
