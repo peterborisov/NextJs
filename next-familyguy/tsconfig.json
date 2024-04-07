@@ -1,17 +1,20 @@
 {
   "compilerOptions": {
+    "paths": {
+      "@app/*": ["./app/*"],
+      "@components/*": ["./components/*"],
+      "@lib/*": ["./lib/*"],
+      "@utils/*": ["./utils/*"],
+      "@characterTypes/*": ["./characterTypes/*"]
+    },
     "outDir": "./build",
-    "target": "es2016", 
-    "module": "commonjs",                      
+    "target": "es2016",
+    "module": "commonjs",
     "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true, 
-    "strict": true,            
+    "forceConsistentCasingInFileNames": true,
+    "strict": true,
     "skipLibCheck": true,
-    "lib": [
-      "dom",
-      "dom.iterable",
-      "esnext"
-    ],
+    "lib": ["dom", "dom.iterable", "esnext"],
     "allowJs": true,
     "noEmit": true,
     "incremental": true,
@@ -30,9 +33,8 @@
     ".next/types/**/*.ts",
     "**/*.ts",
     "**/*.tsx",
-    "app"
+    "app",
+    "next.config.js"
   ],
-  "exclude": [
-    "node_modules"
-  ]
+  "exclude": ["node_modules"]
 }

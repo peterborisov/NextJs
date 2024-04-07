@@ -1,9 +1,8 @@
-
-## Introduction
-https://www.freecodecamp.org/news/step-by-step-tutorial-for-building-your-first-full-stack-application-with-nextjs
-tutorial!
-
 ## Getting Started
 
-npm install
-npm run dev
+pnpm install pnpm run dev
+
+## Tech stack
+
+pnpm ts https://mui.com/material-ui/getting-started/usage/ +
+https://emotion.sh/docs/install

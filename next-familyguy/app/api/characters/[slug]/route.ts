@@ -1,10 +1,3 @@
-/**
- * @param {Object} req - The request object.
- * @param {Object} params - The route parameters.
- * @param {string} params.slug - The slug of the character.
- *
- */
-
 import characters from '@/data/characters.json'
 import { NextResponse } from 'next/server'
 
