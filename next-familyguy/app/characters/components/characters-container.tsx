@@ -24,7 +24,6 @@ const styles = {
 
 export const CharactersContainer = async () => {
   const data = await getAllCharacters()
-  console.log(111, data)
   return (
     <Grid container spacing={1} style={styles.gridContainer}>
       {data?.characters?.map((item: CharacterType, key: number) => {
