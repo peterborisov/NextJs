@@ -1,13 +1,13 @@
-import React, { FunctionComponent } from "react";
+import { FC } from "react";
 
-import { Task } from "../models/task";
+import { Task } from "../task-types/task-types";
 
 interface Props {
   task: Task;
   onDelete: (task: Task) => void;
 }
 
-export const TaskListItem: FunctionComponent<Props> = ({ task, onDelete }) => {
+export const TaskListItem: FC<Props> = ({ task, onDelete }) => {
   const onClick = () => {
     onDelete(task);
   };

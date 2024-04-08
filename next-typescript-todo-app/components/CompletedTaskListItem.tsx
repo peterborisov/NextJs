@@ -1,16 +1,12 @@
-import React, { FunctionComponent } from "react";
-
-import { Task } from "../models/task";
+import { Task } from "@task-types/task-types";
+import { FC } from "react";
 
 interface Props {
   task: Task;
   onDelete: (task: Task) => void;
 }
 
-export const CompletedTaskListItem: FunctionComponent<Props> = ({
-  task,
-  onDelete
-}) => {
+export const CompletedTaskListItem: FC<Props> = ({ task, onDelete }) => {
   const onClick = () => {
     onDelete(task);
   };
@@ -18,15 +14,9 @@ export const CompletedTaskListItem: FunctionComponent<Props> = ({
   return (
     <>
       <li>
-        <span className="strike">{task.name}&nbsp;</span>
+        <span>{task.name}</span>
         <button onClick={onClick}>X</button>
       </li>
-      <style jsx>{`
-        span {
-          color: green;
-          text-decoration: line-through;
-        }
-      `}</style>
     </>
   );
 };

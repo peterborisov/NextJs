@@ -1,6 +1,6 @@
-import React, { FunctionComponent } from "react";
+import { FC } from "react";
 
-import { Task } from "../models/task";
+import { Task } from "../task-types/task-types";
 import { CompletedTaskListItem } from "./CompletedTaskListItem";
 
 interface Props {
@@ -8,24 +8,22 @@ interface Props {
   onDelete: (task: Task) => void;
 }
 
-export const CompletedTaskList: FunctionComponent<Props> = ({
-  tasks,
-  onDelete,
-}) => (
-  <>
-    <div>
-      <h3>Done</h3>
-      {tasks.length == 0 ? "-" : null}
-      <ul>
-        {tasks.map((task, _i) => (
-          <CompletedTaskListItem key={_i} task={task} onDelete={onDelete} />
-        ))}
-      </ul>
-    </div>
-    <style jsx>{`
-      div {
-        min-width: 12em;
-      }
-    `}</style>
-  </>
-);
+export const CompletedTaskList: FC<Props> = ({ tasks, onDelete }) => {
+  return (
+    <>
+      <div>
+        <h3>Done</h3>
+        {tasks.length === 0 ? "No tasks" : null}
+        <ul>
+          {tasks.map((task: Task) => (
+            <CompletedTaskListItem
+              key={task.id}
+              task={task}
+              onDelete={onDelete}
+            />
+          ))}
+        </ul>
+      </div>
+    </>
+  );
+};
