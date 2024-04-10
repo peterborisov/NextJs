@@ -1,5 +1,9 @@
 export type Task = {
-  id: number;
-  name: string;
+  id: string;
+  title: string;
   completed: boolean;
+};
+
+type FormInputs = {
+  title: string;
 };

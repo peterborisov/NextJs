@@ -1,21 +1,25 @@
+import { Task } from "@task-types/task-types";
 import { useState } from "react";
 import { CompletedTaskList } from "../components/CompletedTaskList";
 import { TaskForm } from "../components/TaskForm";
-import { TaskList } from "../components/TaskList";
-import { useTaskData } from "../hooks/use-task-data";
 
 export const Tasks = () => {
-  const {
-    newTask,
-    tasks,
-    completedTasks,
-    addTask,
-    handleTaskChange,
-    deleteTask,
-    undoTask,
-  } = useTaskData();
+  const [tasks, setTasks] = useState<Task[]>([]);
+  const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
 
   const [isCompletedListActive, setCompletedListActive] = useState(false);
+
+  const deleteTask = (taskToDelete: Task) => {
+    setTasks([...tasks.filter((task: Task) => task.id !== taskToDelete.id)]);
+    setCompletedTasks([...completedTasks, taskToDelete]);
+  };
+
+  const undoTask = (taskToUndo: Task) => {
+    setCompletedTasks([
+      ...completedTasks.filter((task) => task.id !== taskToUndo.id),
+    ]);
+    setTasks([...tasks, taskToUndo]);
+  };
 
   const completeListActiveElement = (
     <>
@@ -28,19 +32,24 @@ export const Tasks = () => {
       <label htmlFor="completedListActive">Show Done Tasks</label>
     </>
   );
-
+  console.log("tasks", tasks);
   return (
     <>
       <h2>TS nextJS</h2>
-      <TaskForm
-        disabled={!newTask?.name}
-        task={newTask}
-        onAdd={addTask}
-        onChange={handleTaskChange}
-      />
+      <TaskForm tasks={tasks} setTasks={setTasks} />
       {completeListActiveElement}
       <div className="lists">
-        <TaskList tasks={tasks} onDelete={deleteTask} />
+        <div>
+          <h3>Tasks</h3>
+          {tasks.length === 0 ? "No tasks" : null}
+          <ul>
+            {tasks.map((task) => (
+              <li key={task.id}>
+                {task.title} <button onClick={() => deleteTask(task)}>✔</button>
+              </li>
+            ))}
+          </ul>
+        </div>
         {isCompletedListActive ? (
           <CompletedTaskList tasks={completedTasks} onDelete={undoTask} />
         ) : null}

@@ -1,11 +1,10 @@
 import { FC } from "react";
 
 import { Task } from "../task-types/task-types";
-import { CompletedTaskListItem } from "./CompletedTaskListItem";
 
 interface Props {
   tasks: Task[];
-  onDelete: (task: Task) => void;
+  onDelete: (taskToUndo: Task) => void;
 }
 
 export const CompletedTaskList: FC<Props> = ({ tasks, onDelete }) => {
@@ -16,11 +15,10 @@ export const CompletedTaskList: FC<Props> = ({ tasks, onDelete }) => {
         {tasks.length === 0 ? "No tasks" : null}
         <ul>
           {tasks.map((task: Task) => (
-            <CompletedTaskListItem
-              key={task.id}
-              task={task}
-              onDelete={onDelete}
-            />
+            <li key={task.id}>
+              <span>{task.title}</span>
+              <button onClick={() => onDelete(task)}>X</button>
+            </li>
           ))}
         </ul>
       </div>
