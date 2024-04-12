@@ -6,3 +6,4 @@ Run `dev` to run app locally (`localhost:3000`)
 
 - react-hook-form
 - custom hooks
+- https://redux-toolkit.js.org/

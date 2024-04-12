@@ -1,8 +1,7 @@
 import { FormInputs, Task } from "@task-types/task-types";
 import { FC, useState } from "react";
 import { useForm } from "react-hook-form";
-import { uuid } from "uuidv4";
-
+import { v4 as uuid } from "uuid";
 interface Props {
   tasks: Task[];
   setTasks: (tasks: Task[]) => void;

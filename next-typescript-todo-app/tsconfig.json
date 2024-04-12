@@ -1,7 +1,7 @@
 {
   "compilerOptions": {
     "paths": {
-      "@components/*": ["./components/*"],
+      "@components/*": ["./src/components/*"],
       "@task-types/*": ["./task-types/*"]
     },
     "target": "es5",
@@ -17,8 +17,13 @@
     "resolveJsonModule": true,
     "isolatedModules": true,
     "noEmit": true,
-    "jsx": "preserve"
+    "jsx": "preserve",
+    "plugins": [
+      {
+        "name": "next"
+      }
+    ]
   },
   "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx"]
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"]
 }

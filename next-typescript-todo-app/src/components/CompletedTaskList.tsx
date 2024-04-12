@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Task } from "../task-types/task-types";
+import { Task } from "../../task-types/task-types";
 
 interface Props {
   tasks: Task[];

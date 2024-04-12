@@ -1,13 +1,21 @@
+"use client";
+
 import { Task } from "@task-types/task-types";
 import { useState } from "react";
-import { CompletedTaskList } from "../components/CompletedTaskList";
-import { TaskForm } from "../components/TaskForm";
+import { useDispatch, useSelector } from "react-redux";
+import type { RootState } from "../app/store/store";
+import { decrement, increment } from "../app/tasksSlice";
+import { CompletedTaskList } from "./CompletedTaskList";
+import { TaskForm } from "./TaskForm";
 
 export const Tasks = () => {
   const [tasks, setTasks] = useState<Task[]>([]);
   const [completedTasks, setCompletedTasks] = useState<Task[]>([]);
 
   const [isCompletedListActive, setCompletedListActive] = useState(false);
+
+  const count = useSelector((state: RootState) => state.counter.value);
+  const dispatch = useDispatch();
 
   const deleteTask = (taskToDelete: Task) => {
     setTasks([...tasks.filter((task: Task) => task.id !== taskToDelete.id)]);
@@ -32,9 +40,25 @@ export const Tasks = () => {
       <label htmlFor="completedListActive">Show Done Tasks</label>
     </>
   );
-  console.log("tasks", tasks);
   return (
     <>
+      <div>
+        <div>
+          <button
+            aria-label="Increment value"
+            onClick={() => dispatch(increment())}
+          >
+            Increment
+          </button>
+          <span>{count}</span>
+          <button
+            aria-label="Decrement value"
+            onClick={() => dispatch(decrement())}
+          >
+            Decrement
+          </button>
+        </div>
+      </div>
       <h2>TS nextJS</h2>
       <TaskForm tasks={tasks} setTasks={setTasks} />
       {completeListActiveElement}
