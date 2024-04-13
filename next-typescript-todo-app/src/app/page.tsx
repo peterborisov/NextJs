@@ -1,10 +1,10 @@
 "use client";
 
-import { Tasks } from "@components/Tasks";
 import { Provider } from "react-redux";
 import { store } from "./store/store";
+import { Tasks } from "./tasks/tasks";
 
-export default async function Page() {
+export default function Page() {
   return (
     <Provider store={store}>
       <Tasks />

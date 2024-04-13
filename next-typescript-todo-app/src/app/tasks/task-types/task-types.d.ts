@@ -4,6 +4,6 @@ export type Task = {
   completed: boolean;
 };
 
-type FormInputs = {
+export type FormInputs = {
   title: string;
 };
