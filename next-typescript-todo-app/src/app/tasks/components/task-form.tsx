@@ -1,3 +1,5 @@
+import Button from "@mui/material/Button";
+import TextField from "@mui/material/TextField";
 import { FormInputs } from "@task-types/task-types";
 import { addTask } from "@tasks/tasks-slice";
 import { useForm } from "react-hook-form";
@@ -14,10 +16,16 @@ export const TaskForm = () => {
 
   return (
     <>
-      <input {...register("title")} />
-      <button type="submit" onClick={onSubmit}>
+      <TextField
+        {...register("title")}
+        id="outlined-basic"
+        label="Task title"
+        variant="outlined"
+        size="small"
+      />
+      <Button variant="outlined" size="small" type="submit" onClick={onSubmit}>
         Add task
-      </button>
+      </Button>
     </>
   );
 };

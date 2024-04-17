@@ -4,9 +4,11 @@ Example Tasks application built with Next.js and Typescript
 
 Run `pnpm run dev` to run app locally (`localhost:3000`)
 
+- pnpm
 - react-hook-form(https://react-hook-form.com)
 - custom hooks
 - https://redux-toolkit.js.org/
+- https://emotion.sh/docs/introduction
 
 ```
 src/

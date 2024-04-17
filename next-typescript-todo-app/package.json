@@ -2,10 +2,11 @@
   "name": "next-todo",
   "version": "1.0.0",
   "main": "index.js",
-  "repository": "https://github.com/tlehwalder/next-todo.git",
-  "author": "tobias.lehwalder <tlehwalder@posteo.de>",
   "license": "MIT",
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.5",
+    "@mui/material": "^5.15.15",
     "@reduxjs/toolkit": "^2.2.3",
     "next": "^13.4.10",
     "react": "^18.2.0",
@@ -17,7 +18,8 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "preinstall": "npx only-allow pnpm"
   },
   "devDependencies": {
     "@types/node": "^12.6.9",

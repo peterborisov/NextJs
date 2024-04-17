@@ -1,3 +1,4 @@
+import Button from "@mui/material/Button";
 import { isComplete } from "@tasks/tasks-slice";
 import { FC } from "react";
 import { useDispatch } from "react-redux";
@@ -24,7 +25,14 @@ export const CompletedTaskList: FC<Props> = ({ tasks }) => {
           {completedTasks.map((task: Task) => (
             <li key={task.id}>
               <span>{task.title}</span>
-              <button onClick={() => dispatch(isComplete(task))}>X</button>
+              <Button
+                variant="outlined"
+                color="error"
+                size="small"
+                onClick={() => dispatch(isComplete(task))}
+              >
+                X
+              </Button>
             </li>
           ))}
         </ul>
