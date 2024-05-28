@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
+      "@app/*": ["app/*"],
       "@tasks/*": ["app/tasks/*"],
       "@components/*": ["app/tasks/components/*"],
       "@task-types/*": ["app/tasks/task-types/*"]

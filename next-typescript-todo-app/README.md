@@ -9,6 +9,10 @@ Run `pnpm run dev` to run app locally (`localhost:3000`)
 - custom hooks
 - https://redux-toolkit.js.org/
 - https://emotion.sh/docs/introduction
+- https://handsonreact.com/docs/react-redux-thunk
+- https://tanstack.com/query/latest/docs/framework/react/overview
+- https://redux-toolkit.js.org/rtk-query/api/created-api/endpoints
+- https://react-hook-form.com/get-started#Designandphilosophy
 
 ```
 src/

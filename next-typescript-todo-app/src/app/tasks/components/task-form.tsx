@@ -4,14 +4,17 @@ import { FormInputs } from "@task-types/task-types";
 import { addTask } from "@tasks/tasks-slice";
 import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
+import { useRouter } from "next/navigation";
 
 export const TaskForm = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const { register, handleSubmit } = useForm<FormInputs>();
 
   const onSubmit = handleSubmit(async (data: FormInputs) => {
     dispatch(addTask(data));
+    router.push(`/tasks`);
   });
 
   return (

@@ -8,7 +8,9 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import { Task } from "@task-types/task-types";
 import { isComplete, isCompleteActive } from "@tasks/tasks-slice";
 import { useDispatch, useSelector } from "react-redux";
-import type { RootState } from "../store/store";
+import { useRouter } from "next/navigation";
+
+import type { RootState } from "../../store/store";
 
 const styles = {
   container: css({
@@ -30,12 +32,21 @@ const styles = {
 
 export const Tasks = () => {
   const dispatch = useDispatch();
+  const router = useRouter();
 
   const data = useSelector((state: RootState) => state.tasksState);
 
   const activeTasks = data.tasks.filter((task) => {
     return task.completed !== true;
   });
+
+  const taskDetails = (task: Task) => {
+    router.push(`/tasks/${task.id}`);
+  };
+
+  const addTask = () => {
+    router.push(`/tasks/addNewTask`);
+  };
 
   return (
     <>
@@ -44,7 +55,14 @@ export const Tasks = () => {
           <h1 css={styles.titleStyle}>TS - NextJs App</h1>
         </div>
       </div>
-      <TaskForm />
+      <Button
+        variant="outlined"
+        color="success"
+        size="small"
+        onClick={() => addTask()}
+      >
+        Add Task
+      </Button>
       <FormControlLabel
         label="Show Done Tasks"
         control={
@@ -70,6 +88,14 @@ export const Tasks = () => {
                   onClick={() => dispatch(isComplete(task))}
                 >
                   ✔
+                </Button>{" "}
+                <Button
+                  variant="outlined"
+                  color="success"
+                  size="small"
+                  onClick={() => taskDetails(task)}
+                >
+                  Task Details
                 </Button>
               </li>
             ))}
