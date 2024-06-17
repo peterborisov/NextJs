@@ -8,7 +8,18 @@ interface TasksState {
 }
 
 const initialState: TasksState = {
-  tasks: [],
+  tasks: [
+    {
+      id: "1",
+      title: "Essence Mascara Lash Princess",
+      completed: true,
+    },
+    {
+      id: "2",
+      title: "Essence Mascara Lash Princess",
+      completed: false,
+    },
+  ],
   isCompletedListActive: false,
 };
 
