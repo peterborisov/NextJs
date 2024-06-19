@@ -1,27 +1,20 @@
-import { createSlice } from "@reduxjs/toolkit";
+"use client";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Task } from "@task-types/task-types";
 import { v4 as uuid } from "uuid";
 
 interface TasksState {
   tasks: Task[];
-  isCompletedListActive: boolean;
 }
 
 const initialState: TasksState = {
-  tasks: [
-    {
-      id: "1",
-      title: "Essence Mascara Lash Princess",
-      completed: true,
-    },
-    {
-      id: "2",
-      title: "Essence Mascara Lash Princess",
-      completed: false,
-    },
-  ],
-  isCompletedListActive: false,
+  tasks: [],
 };
+
+export const fetchUserData = createAsyncThunk("tasks/", async () => {
+  const response = await fetch("http://localhost:3000/api/tasks");
+  return await response.json();
+});
 
 export const tasksSlice = createSlice({
   name: "tasksState",
@@ -29,26 +22,21 @@ export const tasksSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       const newTask = {
+        userId: uuid(),
         id: uuid(),
         title: action.payload.title,
         completed: false,
       };
       state.tasks = [...state.tasks, newTask];
     },
-
-    isComplete: (state, action) => {
-      const task = state.tasks.find((task) => task.id == action.payload.id);
-      if (task) {
-        task.completed = !task.completed;
-      }
-    },
-
-    isCompleteActive: (state, action) => {
-      state.isCompletedListActive = !action.payload;
-    },
+  },
+  extraReducers: (builder) => {
+    builder.addCase(fetchUserData.fulfilled, (state, action) => {
+      state.tasks = action.payload.data;
+    });
   },
 });
 
-export const { addTask, isComplete, isCompleteActive } = tasksSlice.actions;
+export const { addTask } = tasksSlice.actions;
 
 export default tasksSlice.reducer;

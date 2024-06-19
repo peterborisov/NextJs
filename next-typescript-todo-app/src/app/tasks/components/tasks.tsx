@@ -1,16 +1,15 @@
 "use client";
 /** @jsxImportSource @emotion/react */
-import { CompletedTaskList, TaskForm } from "@components/index";
+import { TasksTable } from "@components/index";
 import { css } from "@emotion/react";
 import Button from "@mui/material/Button";
-import Checkbox from "@mui/material/Checkbox";
-import FormControlLabel from "@mui/material/FormControlLabel";
 import { Task } from "@task-types/task-types";
-import { isComplete, isCompleteActive } from "@tasks/tasks-slice";
+import { fetchUserData } from "@tasks/tasks-slice";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 
 import type { RootState } from "../../store/store";
+import { useEffect } from "react";
 
 const styles = {
   container: css({
@@ -35,6 +34,10 @@ export const Tasks = () => {
   const router = useRouter();
 
   const data = useSelector((state: RootState) => state.tasksState);
+
+  useEffect(() => {
+    dispatch(fetchUserData());
+  }, [dispatch]);
 
   const activeTasks = data.tasks.filter((task) => {
     return task.completed !== true;
@@ -63,48 +66,7 @@ export const Tasks = () => {
       >
         Add Task
       </Button>
-      <FormControlLabel
-        label="Show Done Tasks"
-        control={
-          <Checkbox
-            onChange={() =>
-              dispatch(isCompleteActive(data.isCompletedListActive))
-            }
-          />
-        }
-      />
-      <>
-        <div>
-          <h3>Tasks</h3>
-          {activeTasks.length === 0 ? "No tasks" : null}
-          <ul>
-            {activeTasks.map((task: Task) => (
-              <li key={task.id}>
-                {task.title}{" "}
-                <Button
-                  variant="outlined"
-                  color="success"
-                  size="small"
-                  onClick={() => dispatch(isComplete(task))}
-                >
-                  ✔
-                </Button>{" "}
-                <Button
-                  variant="outlined"
-                  color="success"
-                  size="small"
-                  onClick={() => taskDetails(task)}
-                >
-                  Task Details
-                </Button>
-              </li>
-            ))}
-          </ul>
-        </div>
-        {data.isCompletedListActive ? (
-          <CompletedTaskList tasks={data.tasks} />
-        ) : null}
-      </>
+      <TasksTable rows={data.tasks} />
     </>
   );
 };

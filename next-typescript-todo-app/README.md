@@ -13,6 +13,7 @@ Run `pnpm run dev` to run app locally (`localhost:3000`)
 - https://tanstack.com/query/latest/docs/framework/react/overview
 - https://redux-toolkit.js.org/rtk-query/api/created-api/endpoints
 - https://react-hook-form.com/get-started#Designandphilosophy
+- https://tailwindcss.com/docs/guides/nextjs
 
 ```
 src/
