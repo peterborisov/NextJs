@@ -5,15 +5,27 @@ import { v4 as uuid } from "uuid";
 
 interface TasksState {
   tasks: Task[];
+  task: Task;
 }
 
 const initialState: TasksState = {
   tasks: [],
+  task: {
+    userId: "",
+    id: 0,
+    title: "",
+    completed: false,
+  },
 };
 
-export const fetchUserData = createAsyncThunk("tasks/", async () => {
+export const fetchTasks = createAsyncThunk("tasks/", async () => {
   const response = await fetch("http://localhost:3000/api/tasks");
   return await response.json();
+});
+
+export const fetchTask = createAsyncThunk(`task`, async (id: number) => {
+  const res = await fetch(`http://localhost:3000/api/tasks/${id}`);
+  return res.json();
 });
 
 export const tasksSlice = createSlice({
@@ -31,8 +43,11 @@ export const tasksSlice = createSlice({
     },
   },
   extraReducers: (builder) => {
-    builder.addCase(fetchUserData.fulfilled, (state, action) => {
+    builder.addCase(fetchTasks.fulfilled, (state, action) => {
       state.tasks = action.payload.data;
+    });
+    builder.addCase(fetchTask.fulfilled, (state, action) => {
+      state.task = action.payload.task;
     });
   },
 });

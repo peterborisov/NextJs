@@ -1,15 +1,13 @@
 "use client";
 /** @jsxImportSource @emotion/react */
-import { TasksTable } from "@components/index";
-import { css } from "@emotion/react";
-import Button from "@mui/material/Button";
-import { Task } from "@task-types/task-types";
-import { fetchUserData } from "@tasks/tasks-slice";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-
+import { css } from "@emotion/react";
+import Button from "@mui/material/Button";
+import { TasksTable } from "@components/index";
+import { fetchTasks } from "@tasks/tasks-slice";
 import type { RootState } from "../../store/store";
-import { useEffect } from "react";
 
 const styles = {
   container: css({
@@ -36,16 +34,8 @@ export const Tasks = () => {
   const data = useSelector((state: RootState) => state.tasksState);
 
   useEffect(() => {
-    dispatch(fetchUserData());
+    dispatch(fetchTasks());
   }, [dispatch]);
-
-  const activeTasks = data.tasks.filter((task) => {
-    return task.completed !== true;
-  });
-
-  const taskDetails = (task: Task) => {
-    router.push(`/tasks/${task.id}`);
-  };
 
   const addTask = () => {
     router.push(`/tasks/addNewTask`);

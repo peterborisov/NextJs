@@ -1,13 +1,17 @@
-interface PageProps {
-  params: { id: string };
+"use client";
+
+import { Provider } from "react-redux";
+import { store } from "../../store/store";
+import { TaskDetails } from "./taskDetails";
+
+interface Props {
+  params: { id: number };
 }
 
-export default async function Page({ params }: PageProps) {
-  const getTask = async () => {
-    const res = await fetch(`http://localhost:3000/api/tasks/${params.id}`);
-    return res.json();
-  };
-  const data = await getTask();
-
-  return <div>{JSON.stringify(data)}</div>;
+export default function Page({ params }: Props) {
+  return (
+    <Provider store={store}>
+      <TaskDetails taskId={params.id} />
+    </Provider>
+  );
 }
