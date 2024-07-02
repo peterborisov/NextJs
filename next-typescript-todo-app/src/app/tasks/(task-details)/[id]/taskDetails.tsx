@@ -1,9 +1,10 @@
 "use client";
+
 import { useEffect, FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import Button from "@mui/material/Button";
-import type { RootState } from "../../store/store";
+import type { RootState } from "../../../store/store";
 import { fetchTask } from "@tasks/tasks-slice";
 
 type Props = {
@@ -13,6 +14,7 @@ type Props = {
 export const TaskDetails: FC<Props> = ({ taskId }) => {
   const router = useRouter();
   const dispatch = useDispatch();
+
   const data = useSelector((state: RootState) => state.tasksState);
 
   const { userId, id, title, completed } = data.task;

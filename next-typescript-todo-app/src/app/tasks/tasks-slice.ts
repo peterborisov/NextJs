@@ -2,8 +2,6 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Task } from "@task-types/task-types";
 import { v4 as uuid } from "uuid";
-import { localhost } from "@app/utils/endpoint";
-
 interface TasksState {
   tasks: Task[];
   task: Task;
@@ -20,12 +18,12 @@ const initialState: TasksState = {
 };
 
 export const fetchTasks = createAsyncThunk("tasks/", async () => {
-  const response = await fetch(`${localhost}/api/tasks`);
+  const response = await fetch(`/api/tasks`);
   return await response.json();
 });
 
 export const fetchTask = createAsyncThunk(`task`, async (id: number) => {
-  const res = await fetch(`${localhost}/api/tasks/${id}`);
+  const res = await fetch(`/api/tasks/${id}`);
   return res.json();
 });
 
