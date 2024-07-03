@@ -3,7 +3,7 @@
 import { useEffect, FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import Button from "@mui/material/Button";
+import { Button } from "flowbite-react";
 import type { RootState } from "../../../store/store";
 import { fetchTask } from "@tasks/tasks-slice";
 

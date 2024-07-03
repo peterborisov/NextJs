@@ -1,7 +1,10 @@
 - Pages and layouts
-- Navigation between pages
-- Dynamic routes
-- Route groups
+- Routing
+  - files system routes(next using link component)
+  - programmatic routing(useRoute() hook)
+  - dynamic routes ([id])
+  - parallel routing - multiple pages on same layout
+  - intercepting routes
 
 ```
 (myFeature)
@@ -9,12 +12,13 @@
     - contacts
 ```
 
-- Suspense and streaming
+- Suspense - better to create loading page
 
 ```
 <Suspense fallback={MyComponent}>
 ```
 
+- Streaming - break app into smaller chunks to load progressively
 - Error boundaries
 - Templates vs. layouts - template re-render(good for useEffect), layout run only once
 - Server vs. client components -
@@ -28,7 +32,8 @@
 - Server actions - to update data
   - form action={addItem}
   - button formAction={upVote}
-  - startTransition
+  - actions.ts
+  - useTransition() hook
   - combine server actions with useFormState and useFormStatus from React
 - Migrating from NextJS 12
   - export const dynamic = "" to transform component to be SSR at SSG
@@ -45,13 +50,12 @@
   ```
 
   - file based
-
   - static
   - dynamic
   - fields
 
-- Route handlers
 - Middleware - run code before req is complete.
-- Parallel routes - multiple pages on same layout
-- Intercepting routes
 - NextAuth
+  - https://next-auth.js.org/getting-started/introduction
+  - https://www.freecodecamp.org/news/how-to-setup-authentication-and-protected-route-in-next-js-13-with-next-auth-js/
+- DB - https://pocketbase.io

@@ -1,5 +1,4 @@
-import Button from "@mui/material/Button";
-import TextField from "@mui/material/TextField";
+import { Button, TextInput, Label } from "flowbite-react";
 import { FormInputs } from "@task-types/task-types";
 import { addTask } from "@tasks/tasks-slice";
 import { useForm } from "react-hook-form";
@@ -19,14 +18,9 @@ export const TaskForm = () => {
 
   return (
     <>
-      <TextField
-        {...register("title")}
-        id="outlined-basic"
-        label="Task title"
-        variant="outlined"
-        size="small"
-      />
-      <Button variant="outlined" size="small" type="submit" onClick={onSubmit}>
+      <Label htmlFor="title" value="Task Title" />
+      <TextInput {...register("title")} id="title" />
+      <Button size="small" type="submit" onClick={onSubmit}>
         Add task
       </Button>
     </>

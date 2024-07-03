@@ -8,7 +8,6 @@
       "@characterTypes/*": ["./characterTypes/*"],
       "@ui/*": ["./ui/*"]
     },
-    "jsxImportSource": "@emotion/react",
     "outDir": "./build",
     "target": "es2016",
     "module": "commonjs",

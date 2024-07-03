@@ -2,7 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import Button from "@mui/material/Button";
+import { Button } from "flowbite-react";
 import { TasksTable } from "@components/index";
 import { fetchTasks } from "@tasks/tasks-slice";
 import type { RootState } from "../../store/store";
@@ -23,14 +23,7 @@ export const Tasks = () => {
 
   return (
     <>
-      <Button
-        variant="outlined"
-        color="success"
-        size="small"
-        onClick={() => addTask()}
-      >
-        Add Task
-      </Button>
+      <Button onClick={() => addTask()}>Add Task</Button>
       <TasksTable rows={data.tasks} />
     </>
   );
