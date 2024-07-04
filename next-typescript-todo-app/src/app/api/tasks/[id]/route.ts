@@ -3,7 +3,7 @@ import { tasksUrl } from "@app/utils/endpoint";
 
 export async function GET(
   req: NextRequest,
-  { params }: { params: { id: number } }
+  { params }: { params: { id: number } },
 ) {
   const res = await fetch(`${tasksUrl}/${params.id}`);
   const data = await res.json();

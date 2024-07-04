@@ -21,3 +21,9 @@ const memoizedCAllback = useCallback(() => {myFn()}, [])
 
 - TailwindCSS for css classes, grid/flex, etc.
 - https://flowbite-react.com for UI components
+
+### Advanced React performance
+
+- Code splitting
+  https://bundlephobia.com
+- SSR
