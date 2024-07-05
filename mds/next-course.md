@@ -1,3 +1,23 @@
+# NextJS - React framework
+
+### 3 Main features of NextJS
+
+#### 1. Routing
+
+#### There are four ways to navigate between routes in Next.js:
+
+- Using the Link Component
+- Using the useRouter hook (Client Components)
+- Using the redirect function (Server Components)
+- Using the native History API
+
+#### 2. Pre-rendering
+
+- Static Generation is the pre-rendering method that generates the HTML at build time.
+- Server-side Rendering is the pre-rendering method that generates the HTML on each request.
+
+#### 3. API endpoints
+
 - Pages and layouts
 - Routing
   - files system routes(next using link component)
