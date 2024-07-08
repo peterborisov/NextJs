@@ -1,31 +1,34 @@
-/**
- * For a detailed explanation regarding each configuration property, visit:
- * https://jestjs.io/docs/configuration
- */
-
-const nextJest = require("next/jest");
-
-const createJestConfig = nextJest({
-  // Provide the path to your Next.js app to load next.config.js and .env files in your test environment
-  dir: "./",
-});
-
-/** @type {import('jest').Config} */
-const config = {
-  // Indicates whether the coverage information should be collected while executing the test
+module.exports = {
   collectCoverage: true,
-
-  // An array of glob patterns indicating a set of files for which coverage information should be collected
-  // collectCoverageFrom: undefined,
-
-  // The directory where Jest should output its coverage files
-  coverageDirectory: "coverage",
-
-  // Indicates which provider should be used to instrument code for coverage
   coverageProvider: "v8",
-
-  // The test environment that will be used for testing
+  collectCoverageFrom: [
+    "**/*.{ts,tsx}",
+    "!**/*.d.ts",
+    "!**/node_modules/**",
+    "!<rootDir>/out/**",
+    "!<rootDir>/.next/**",
+    "!<rootDir>/coverage/**",
+  ],
+  moduleNameMapper: {
+    uuid: require.resolve("uuid"),
+    "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
+    "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+    "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i": `<rootDir>/__mocks__/fileMock.js`,
+    "^@app(.*)$": "<rootDir>/src/app/$1",
+    "^@tasks(.*)$": "<rootDir>/src/app/tasks/$1",
+    "^@components(.*)$": "<rootDir>/src/app/tasks/components/$1",
+    "^@task-types(.*)$": "<rootDir>/src/app/tasks/task-types/$1",
+    "@next/font/(.*)": `<rootDir>/__mocks__/nextFontMock.js`,
+    "next/font/(.*)": `<rootDir>/__mocks__/nextFontMock.js`,
+    "server-only": `<rootDir>/__mocks__/empty.js`,
+  },
+  testPathIgnorePatterns: ["<rootDir>/node_modules/", "<rootDir>/.next/"],
   testEnvironment: "jsdom",
+  transform: {
+    "^.+\\.(js|jsx|ts|tsx)$": ["babel-jest", { presets: ["next/babel"] }],
+  },
+  transformIgnorePatterns: [
+    "/node_modules/",
+    "^.+\\.module\\.(css|sass|scss)$",
+  ],
 };
-
-module.exports = createJestConfig(config);

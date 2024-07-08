@@ -17,7 +17,6 @@ export const TasksTable: FC<TasksTableProps> = ({ rows }) => {
 
   const [page, setPage] = useState(0);
   const onPageChange = (page: number) => setPage(page);
-
   return (
     <>
       <Table>

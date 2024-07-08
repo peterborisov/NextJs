@@ -1,7 +1,7 @@
 "use client";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Task } from "@task-types/task-types";
-import { v4 as uuid } from "uuid";
+import { v4 as uuidv4 } from "uuid";
 interface TasksState {
   tasks: Task[];
   task: Task;
@@ -33,8 +33,8 @@ export const tasksSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       const newTask = {
-        userId: uuid(),
-        id: uuid(),
+        userId: uuidv4(),
+        id: uuidv4(),
         title: action.payload.title,
         completed: false,
       };
