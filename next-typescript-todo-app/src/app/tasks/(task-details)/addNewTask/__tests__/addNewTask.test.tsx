@@ -6,11 +6,7 @@ import { store } from "@app/store/store";
 
 // Mock useRouter:
 jest.mock("next/navigation", () => ({
-  useRouter() {
-    return {
-      prefetch: () => null,
-    };
-  },
+  useRouter() {},
 }));
 
 describe("Render TaskForm", () => {

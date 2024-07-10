@@ -1,4 +1,5 @@
-import { render } from "@testing-library/react";
+import "@testing-library/jest-dom";
+import { render, screen, fireEvent } from "@testing-library/react";
 
 import { TaskForm } from "../task-form";
 import { Provider } from "react-redux";
@@ -8,7 +9,7 @@ import { store } from "@app/store/store";
 jest.mock("next/navigation", () => ({
   useRouter() {
     return {
-      prefetch: () => null,
+      push: jest.fn(),
     };
   },
 }));
@@ -21,5 +22,20 @@ describe("Render TaskForm", () => {
       </Provider>,
     );
     expect(form).toBeDefined();
+  });
+  it("On button click", () => {
+    render(
+      <Provider store={store}>
+        <TaskForm />
+      </Provider>,
+    );
+
+    const mockFn = jest.fn();
+    const addTaskBtn = screen.getByText("Add task");
+
+    expect(addTaskBtn).toBeInTheDocument();
+
+    fireEvent.click(addTaskBtn);
+    expect(mockFn).toHaveBeenCalledTimes(0);
   });
 });
