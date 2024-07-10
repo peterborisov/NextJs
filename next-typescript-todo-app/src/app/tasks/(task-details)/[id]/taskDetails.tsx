@@ -3,7 +3,8 @@
 import { useEffect, FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import { Button } from "flowbite-react";
+import { Button, Card, Badge } from "flowbite-react";
+
 import type { RootState } from "../../../store/store";
 import { fetchTask } from "@tasks/tasks-slice";
 
@@ -29,11 +30,28 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
 
   return (
     <>
+      <Card className="mx-auto my-44 w-[40%]">
+        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
+          Task Details:
+        </h5>
+        <p className="font-normal text-gray-700 dark:text-gray-400">
+          User ID: {userId}
+        </p>
+        <p className="font-normal text-gray-700 dark:text-gray-400">
+          Task ID: {id}
+        </p>
+        <p className="font-normal text-gray-700 dark:text-gray-400">
+          Task Title : {title}
+        </p>
+        <p>
+          {completed ? (
+            <Badge color="success">Task is completed</Badge>
+          ) : (
+            <Badge color="failure">Task is not complete</Badge>
+          )}
+        </p>
+      </Card>
       <Button onClick={handleBackToTasks}>All tasks</Button>
-      <p>{userId}</p>
-      <p>{id}</p>
-      <p>{title}</p>
-      <p>{completed ? "Completed" : "Not completed"}</p>
     </>
   );
 };

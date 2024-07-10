@@ -1,2 +1,2 @@
 export { TaskForm } from "./task-form";
-export { TasksTable } from "./tasks-table";
+export { TasksList } from "./tasks-list";

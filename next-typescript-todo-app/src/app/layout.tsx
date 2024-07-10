@@ -6,8 +6,10 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html className="bg-slate-200" lang="en">
+      <body>
+        <div className="container m-4 mx-auto">{children}</div>
+      </body>
     </html>
   );
 }

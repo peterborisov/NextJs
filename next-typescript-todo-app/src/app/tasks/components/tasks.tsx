@@ -2,8 +2,7 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
-import { Button } from "flowbite-react";
-import { TasksTable } from "@components/index";
+import { TasksList } from "@components/index";
 import { fetchTasks } from "@tasks/tasks-slice";
 import type { RootState } from "../../store/store";
 
@@ -17,14 +16,9 @@ export const Tasks = () => {
     dispatch(fetchTasks());
   }, [dispatch]);
 
-  const addTask = () => {
-    router.push(`/tasks/addNewTask`);
-  };
-
   return (
     <>
-      <Button onClick={() => addTask()}>Add Task</Button>
-      <TasksTable rows={data.tasks} />
+      <TasksList rows={data.tasks} />
     </>
   );
 };

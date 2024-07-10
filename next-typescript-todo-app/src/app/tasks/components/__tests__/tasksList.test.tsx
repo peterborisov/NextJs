@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 import { fireEvent, render, screen } from "@testing-library/react";
-import { TasksTable } from "../tasks-table";
+import { TasksList } from "../tasks-list";
 
 // Mock useRouter:
 jest.mock("next/navigation", () => ({
@@ -13,14 +13,14 @@ jest.mock("next/navigation", () => ({
 
 const mockRows = [{ userId: "1", id: 1, title: "test", completed: true }];
 
-describe("Render TasksTable", () => {
+describe("Render TasksList", () => {
   it("render component", () => {
-    const taskTable = render(<TasksTable rows={mockRows} />);
+    const taskTable = render(<TasksList rows={mockRows} />);
     expect(taskTable).toBeDefined();
   });
 
   it("On task details", () => {
-    render(<TasksTable rows={mockRows} />);
+    render(<TasksList rows={mockRows} />);
 
     const mockFn = jest.fn();
     const taskDetailsBtn = screen.getAllByText("Task Details")[0];
