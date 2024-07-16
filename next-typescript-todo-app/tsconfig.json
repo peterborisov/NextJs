@@ -5,7 +5,8 @@
       "@app/*": ["app/*"],
       "@tasks/*": ["app/tasks/*"],
       "@components/*": ["app/tasks/components/*"],
-      "@task-types/*": ["app/tasks/task-types/*"]
+      "@task-types/*": ["app/tasks/task-types/*"],
+      "@hooks/*": ["app/hooks/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],

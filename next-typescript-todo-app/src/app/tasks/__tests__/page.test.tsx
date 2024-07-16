@@ -3,7 +3,14 @@ import Page from "../page";
 
 // Mock useRouter:
 jest.mock("next/navigation", () => ({
-  useRouter() {},
+  useRouter() {
+    return {
+      push: jest.fn(),
+    };
+  },
+  useSearchParams: () => ({
+    get: () => {},
+  }),
 }));
 
 describe("Render Page", () => {

@@ -15,6 +15,7 @@ module.exports = {
     "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
     "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i": `<rootDir>/__mocks__/fileMock.js`,
     "^@app(.*)$": "<rootDir>/src/app/$1",
+    "^@hooks(.*)$": "<rootDir>/src/app/hooks/$1",
     "^@tasks(.*)$": "<rootDir>/src/app/tasks/$1",
     "^@components(.*)$": "<rootDir>/src/app/tasks/components/$1",
     "^@task-types(.*)$": "<rootDir>/src/app/tasks/task-types/$1",

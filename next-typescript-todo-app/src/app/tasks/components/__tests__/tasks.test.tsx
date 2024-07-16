@@ -11,6 +11,9 @@ jest.mock("next/navigation", () => ({
       push: jest.fn(),
     };
   },
+  useSearchParams: () => ({
+    get: () => {},
+  }),
 }));
 
 describe("Render Tasks", () => {
