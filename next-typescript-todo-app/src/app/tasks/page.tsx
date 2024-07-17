@@ -2,12 +2,12 @@
 
 import { Provider } from "react-redux";
 import { store } from "../store/store";
-import { Tasks } from "@components/tasks";
+import { TasksList } from "@components/index";
 
 const Page = () => {
   return (
     <Provider store={store}>
-      <Tasks />
+      <TasksList />
     </Provider>
   );
 };
