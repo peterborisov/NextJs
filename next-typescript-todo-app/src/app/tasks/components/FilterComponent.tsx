@@ -1,8 +1,6 @@
-import { FC, useState } from "react";
+import { FC } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
-
 import { Button, Label, TextInput, Checkbox } from "flowbite-react";
-
 import { DropdownComponent } from "@components/index";
 
 type TasksProps = {

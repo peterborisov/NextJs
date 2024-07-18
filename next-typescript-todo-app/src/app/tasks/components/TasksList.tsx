@@ -1,28 +1,26 @@
-import { useState, useEffect } from "react";
-import { TableComponent, FilterComponent } from "@components/index";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { fetchTasks } from "@tasks/tasks-slice";
-import type { RootState } from "../../store/store";
+import { TableComponent, FilterComponent } from "@components/index";
+import { fetchTasks, setFilterValue, setIsChecked } from "@tasks/tasks-slice";
+import type { RootState } from "@app/store/store";
 
 export const TasksList = () => {
   const dispatch = useDispatch();
 
   const data = useSelector((state: RootState) => state.tasksState);
+  const { filterValue, isChecked } = data;
 
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);
 
-  const [filterValue, setFilterValue] = useState("");
-  const [isChecked, setIsChecked] = useState(false);
-
   const onFilterChange = (e) => {
     e.preventDefault();
-    setFilterValue(e.target.value);
+    dispatch(setFilterValue(e.target.value));
   };
 
   const handleChecked = () => {
-    setIsChecked(!isChecked);
+    dispatch(setIsChecked(!isChecked));
   };
 
   return (

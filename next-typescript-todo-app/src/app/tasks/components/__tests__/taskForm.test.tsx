@@ -1,7 +1,7 @@
 import "@testing-library/jest-dom";
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import { TaskForm } from "../task-form";
+import { TaskForm } from "../TaskForm";
 import { Provider } from "react-redux";
 import { store } from "@app/store/store";
 

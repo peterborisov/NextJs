@@ -1,8 +1,11 @@
-import { FC, useState, useEffect } from "react";
-import { Button, Table, Badge, Pagination } from "flowbite-react";
+import { FC, useEffect } from "react";
 import { useRouter } from "next/navigation";
+import { Button, Table, Badge, Pagination } from "flowbite-react";
+import { useDispatch, useSelector } from "react-redux";
 import { Task } from "@task-types/task-types";
+import { setPage, setSorting } from "@tasks/tasks-slice";
 import { useSorting } from "@hooks/useSorting";
+import type { RootState } from "@app/store/store";
 
 interface TableProps {
   filterValue: string;
@@ -17,10 +20,10 @@ export const TableComponent: FC<TableProps> = ({
 }) => {
   const router = useRouter();
   const { sortUserId } = useSorting();
+  const dispatch = useDispatch();
 
-  const [sorting, setSorting] = useState("acs");
-  const [orderBy, setOrderBy] = useState("id");
-  const [page, setPage] = useState(0);
+  const state = useSelector((state: RootState) => state.tasksState);
+  const { page, sorting, orderBy } = state;
 
   useEffect(() => {
     router.push(`?sort=${sorting}&orderBy=${orderBy}`);
@@ -39,10 +42,12 @@ export const TableComponent: FC<TableProps> = ({
   };
 
   const handlesSorting = () => {
-    sorting === "acs" ? setSorting("des") : setSorting("acs");
+    sorting === "acs"
+      ? dispatch(setSorting("des"))
+      : dispatch(setSorting("acs"));
   };
 
-  const onPageChange = (page: number) => setPage(page);
+  const onPageChange = (page: number) => dispatch(setPage(page));
 
   return (
     <>

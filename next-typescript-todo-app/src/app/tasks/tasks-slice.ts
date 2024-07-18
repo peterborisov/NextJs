@@ -2,19 +2,32 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import { Task } from "@task-types/task-types";
 import { v4 as uuidv4 } from "uuid";
+
 interface TasksState {
   tasks: Task[];
   task: Task;
+  page: number;
+  sorting: string;
+  orderBy: string;
+  orderByLabel: string;
+  filterValue: string;
+  isChecked: boolean;
 }
 
 const initialState: TasksState = {
   tasks: [],
   task: {
-    userId: "",
+    userId: 0,
     id: 0,
     title: "",
     completed: false,
   },
+  page: 0,
+  sorting: "acs",
+  orderBy: "id",
+  orderByLabel: "Order By",
+  filterValue: "",
+  isChecked: false,
 };
 
 export const fetchTasks = createAsyncThunk("tasks/", async () => {
@@ -40,6 +53,24 @@ export const tasksSlice = createSlice({
       };
       state.tasks = [...state.tasks, newTask];
     },
+    setPage: (state, action) => {
+      state.page = action.payload;
+    },
+    setSorting: (state, action) => {
+      state.sorting = action.payload;
+    },
+    setOrderBy: (state, action) => {
+      state.orderBy = action.payload;
+    },
+    setOrderByLabel: (state, action) => {
+      state.orderByLabel = action.payload;
+    },
+    setFilterValue: (state, action) => {
+      state.filterValue = action.payload;
+    },
+    setIsChecked: (state, action) => {
+      state.isChecked = action.payload;
+    },
   },
   extraReducers: (builder) => {
     builder.addCase(fetchTasks.fulfilled, (state, action) => {
@@ -51,6 +82,14 @@ export const tasksSlice = createSlice({
   },
 });
 
-export const { addTask } = tasksSlice.actions;
+export const {
+  addTask,
+  setPage,
+  setSorting,
+  setOrderBy,
+  setOrderByLabel,
+  setFilterValue,
+  setIsChecked,
+} = tasksSlice.actions;
 
 export default tasksSlice.reducer;

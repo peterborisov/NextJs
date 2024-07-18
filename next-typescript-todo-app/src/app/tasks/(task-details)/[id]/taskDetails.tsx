@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { Button, Card, Badge } from "flowbite-react";
 
-import type { RootState } from "../../../store/store";
+import type { RootState } from "@app/store/store";
 import { fetchTask } from "@tasks/tasks-slice";
 
 type Props = {
