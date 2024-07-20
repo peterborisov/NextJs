@@ -28,10 +28,14 @@ export const FilterComponent: FC<TasksProps> = ({
     <div className="my-4 flex items-end gap-4">
       <div>
         <Label htmlFor="task-id">Filter by task ID</Label>
-        <TextInput id="task-id" onChange={onFilterChange} />
+        <TextInput
+          id="task-id"
+          data-testid="task-id"
+          onChange={onFilterChange}
+        />
       </div>
       <DropdownComponent />
-      <Button className="h-10" onClick={() => addTask()}>
+      <Button className="h-10" data-testid="add-task" onClick={() => addTask()}>
         Add Task
       </Button>
       <Checkbox id="completed" checked={isChecked} onChange={handleChecked} />

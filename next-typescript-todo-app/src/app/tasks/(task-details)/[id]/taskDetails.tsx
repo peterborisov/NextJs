@@ -28,21 +28,17 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
     router.push("/tasks");
   };
 
+  const styles = {
+    p: "font-normal text-gray-700 dark:text-gray-400",
+    h5: "text-2xl font-bold tracking-tight text-gray-900 dark:text-white",
+  };
   return (
     <>
       <Card className="mx-auto my-44 w-[40%]">
-        <h5 className="text-2xl font-bold tracking-tight text-gray-900 dark:text-white">
-          Task Details:
-        </h5>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          User ID: {userId}
-        </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          Task ID: {id}
-        </p>
-        <p className="font-normal text-gray-700 dark:text-gray-400">
-          Task Title : {title}
-        </p>
+        <h5 className={styles.h5}>Task Details:</h5>
+        <p className={styles.p}>User ID: {userId}</p>
+        <p className={styles.p}>Task ID: {id}</p>
+        <p className={styles.p}>Task Title : {title}</p>
         <p>
           {completed ? (
             <Badge color="success">Task is completed</Badge>

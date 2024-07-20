@@ -16,7 +16,7 @@ jest.mock("next/navigation", () => ({
   }),
 }));
 
-const mockRows = [{ userId: 1, id: 1, title: "test", completed: true }];
+// const mockRows = [{ userId: 1, id: 1, title: "test", completed: true }];
 
 describe("Render TasksList", () => {
   it("render component", () => {

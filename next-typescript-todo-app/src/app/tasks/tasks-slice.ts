@@ -14,7 +14,7 @@ interface TasksState {
   isChecked: boolean;
 }
 
-const initialState: TasksState = {
+export const initialState: TasksState = {
   tasks: [],
   task: {
     userId: 0,
