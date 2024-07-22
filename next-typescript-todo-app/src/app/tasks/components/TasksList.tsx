@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { TableComponent, FilterComponent } from "@components/index";
+import { TableComponent, FilterComponent } from "../components";
 import { fetchTasks, setFilterValue, setIsChecked } from "@tasks/tasks-slice";
 import type { RootState } from "@app/store/store";
 
@@ -24,7 +24,7 @@ export const TasksList = () => {
   };
 
   return (
-    <div className="mx-auto w-[70%]">
+    <>
       <FilterComponent
         onFilterChange={onFilterChange}
         isChecked={isChecked}
@@ -35,6 +35,6 @@ export const TasksList = () => {
         filterValue={filterValue}
         isChecked={isChecked}
       />
-    </div>
+    </>
   );
 };

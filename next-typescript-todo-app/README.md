@@ -7,13 +7,12 @@ Run `pnpm run dev` to run app locally (`localhost:3000`)
 - pnpm
 - react-hook-form(https://react-hook-form.com)
 - custom hooks
-- https://redux-toolkit.js.org/
-- https://emotion.sh/docs/introduction
+- redux-toolkit - https://redux-toolkit.js.org/
+- tailwindcss - https://tailwindcss.com/docs/guides/nextjs
+- flowbite-react - https://flowbite-react.com/
+- icons - https://heroicons.com/
 - https://handsonreact.com/docs/react-redux-thunk
 - https://tanstack.com/query/latest/docs/framework/react/overview
-- https://redux-toolkit.js.org/rtk-query/api/created-api/endpoints
-- https://react-hook-form.com/get-started#Designandphilosophy
-- https://tailwindcss.com/docs/guides/nextjs
 
 ```
 src/

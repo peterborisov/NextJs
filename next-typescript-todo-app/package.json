@@ -6,6 +6,7 @@
   "dependencies": {
     "@babel/plugin-proposal-do-expressions": "^7.24.7",
     "@babel/preset-env": "^7.24.7",
+    "@heroicons/react": "^2.1.5",
     "@reduxjs/toolkit": "^2.2.3",
     "@typescript-eslint/eslint-plugin": "^7.15.0",
     "@typescript-eslint/parser": "^7.15.0",

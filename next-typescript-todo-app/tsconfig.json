@@ -4,7 +4,8 @@
     "paths": {
       "@app/*": ["app/*"],
       "@tasks/*": ["app/tasks/*"],
-      "@components/*": ["app/tasks/components/*"],
+      "@users-components/*": ["app/users/components/*"],
+      "@app-components/*": ["app/components/*"],
       "@task-types/*": ["app/tasks/task-types/*"],
       "@hooks/*": ["app/hooks/*"]
     },

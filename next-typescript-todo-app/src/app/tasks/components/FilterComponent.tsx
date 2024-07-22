@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
 import { Button, Label, TextInput, Checkbox } from "flowbite-react";
-import { DropdownComponent } from "@components/index";
+import { DropdownComponent } from "./index";
 
 type TasksProps = {
   onFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
@@ -35,7 +35,7 @@ export const FilterComponent: FC<TasksProps> = ({
         />
       </div>
       <DropdownComponent />
-      <Button className="h-10" data-testid="add-task" onClick={() => addTask()}>
+      <Button data-testid="add-task" onClick={() => addTask()}>
         Add Task
       </Button>
       <Checkbox id="completed" checked={isChecked} onChange={handleChecked} />

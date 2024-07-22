@@ -4,6 +4,6 @@ exports[`Page renders a heading 1`] = `
 <h1
   class="text-3xl font-bold underline"
 >
-  Tasks Homepage!
+  App Homepage!
 </h1>
 `;

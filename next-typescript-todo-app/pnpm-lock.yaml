@@ -14,6 +14,9 @@ importers:
       '@babel/preset-env':
         specifier: ^7.24.7
         version: 7.24.8(@babel/core@7.24.7)
+      '@heroicons/react':
+        specifier: ^2.1.5
+        version: 2.1.5(react@18.2.0)
       '@reduxjs/toolkit':
         specifier: ^2.2.3
         version: 2.2.3(react-redux@9.1.0(@types/react@16.14.60)(react@18.2.0)(redux@4.2.1))(react@18.2.0)
@@ -111,9 +114,6 @@ importers:
       autoprefixer:
         specifier: ^10.4.19
         version: 10.4.19(postcss@8.4.39)
-      identity-obj-proxy:
-        specifier: ^3.0.0
-        version: 3.0.0
       jest:
         specifier: ^29.7.0
         version: 29.7.0(@types/node@12.20.55)
@@ -853,6 +853,11 @@ packages:
 
   '@floating-ui/utils@0.2.1':
     resolution: {integrity: sha512-9TANp6GPoMtYzQdt54kfAyMmz1+osLlXdg2ENroU7zzrtflTLrrC/lgrIfaSe+Wu0b89GKccT7vxXA0MoAIO+Q==}
+
+  '@heroicons/react@2.1.5':
+    resolution: {integrity: sha512-FuzFN+BsHa+7OxbvAERtgBTNeZpUjgM/MIizfVkSCL2/edriN0Hx/DWRCR//aPYwO5QX/YlgLGXk+E3PcfZwjA==}
+    peerDependencies:
+      react: '>= 16'
 
   '@humanwhocodes/config-array@0.11.14':
     resolution: {integrity: sha512-3T8LkOmg45BV5FICb15QQMsyUSWrQ8AygVfC7ZG32zOalnqrilm018ZVCw0eapXux8FtA33q8PSRSstjee3jSg==}
@@ -2301,9 +2306,6 @@ packages:
   graphemer@1.4.0:
     resolution: {integrity: sha512-EtKwoO6kxCL9WO5xipiHTZlSzBm7WLT627TqC/uVRd0HKmq8NXyebnNYxDoBi7wt8eTWrUrKXCOVaFq9x1kgag==}
 
-  harmony-reflect@1.6.2:
-    resolution: {integrity: sha512-HIp/n38R9kQjDEziXyDTuW3vvoxxyxjxFzXLrBr18uB47GnSt+G9D29fqrpM5ZkspMcPICud3XsBJQ4Y2URg8g==}
-
   has-bigints@1.0.2:
     resolution: {integrity: sha512-tSvCKtBr9lkF0Ex0aQiP9N+OpV4zi2r/Nee5VkRDbaqv35RLYMzbwQfFSZZH0kR+Rd6302UJZ2p/bJCEoR3VoQ==}
 
@@ -2365,10 +2367,6 @@ packages:
   iconv-lite@0.6.3:
     resolution: {integrity: sha512-4fCk79wshMdzMp2rH06qWrJE4iolqLhCUH+OiuIgU++RB0+94NlDL81atO7GX55uUKueo0txHNtvEyI6D7WdMw==}
     engines: {node: '>=0.10.0'}
-
-  identity-obj-proxy@3.0.0:
-    resolution: {integrity: sha512-00n6YnVHKrinT9t0d9+5yZC6UBNJANpYEQvL2LlX6Ab9lnmxzIRcEmTPuyGScvl1+jKuCICX1Z0Ab1pPKKdikA==}
-    engines: {node: '>=4'}
 
   ignore@5.3.1:
     resolution: {integrity: sha512-5Fytz/IraMjqpwfd34ke28PTVMjZjJG2MPn5t7OE4eUCUNf8BAa7b5WUS9/Qvr6mwOQS7Mk6vdsMno5he+T8Xw==}
@@ -4987,6 +4985,10 @@ snapshots:
 
   '@floating-ui/utils@0.2.1': {}
 
+  '@heroicons/react@2.1.5(react@18.2.0)':
+    dependencies:
+      react: 18.2.0
+
   '@humanwhocodes/config-array@0.11.14':
     dependencies:
       '@humanwhocodes/object-schema': 2.0.3
@@ -6791,8 +6793,6 @@ snapshots:
 
   graphemer@1.4.0: {}
 
-  harmony-reflect@1.6.2: {}
-
   has-bigints@1.0.2: {}
 
   has-flag@3.0.0: {}
@@ -6845,10 +6845,6 @@ snapshots:
   iconv-lite@0.6.3:
     dependencies:
       safer-buffer: 2.1.2
-
-  identity-obj-proxy@3.0.0:
-    dependencies:
-      harmony-reflect: 1.6.2
 
   ignore@5.3.1: {}
 
