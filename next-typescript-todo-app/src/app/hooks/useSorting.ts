@@ -1,4 +1,4 @@
-import { Task } from "@task-types/task-types";
+import { Task } from "@tasks/task-types/task-types";
 
 export const useSorting = () => {
   const sortUserId = (sortParam: string, arr: Task[]) => {

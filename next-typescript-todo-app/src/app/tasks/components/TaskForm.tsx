@@ -2,7 +2,7 @@ import { useForm } from "react-hook-form";
 import { useDispatch } from "react-redux";
 import { useRouter } from "next/navigation";
 import { Button, TextInput, Label } from "flowbite-react";
-import { FormInputs } from "@task-types/task-types";
+import { FormInputs } from "@tasks/task-types/task-types";
 import { addTask } from "@tasks/tasks-slice";
 
 export const TaskForm = () => {

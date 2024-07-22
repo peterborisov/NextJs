@@ -2,7 +2,7 @@
 
 import { Provider } from "react-redux";
 import { store } from "../store/store";
-import { UsersList } from "@users-components/index";
+import { UsersList } from "@users/components/index";
 
 const Page = () => {
   return (

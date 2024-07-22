@@ -4,9 +4,8 @@
     "paths": {
       "@app/*": ["app/*"],
       "@tasks/*": ["app/tasks/*"],
-      "@users-components/*": ["app/users/components/*"],
-      "@app-components/*": ["app/components/*"],
-      "@task-types/*": ["app/tasks/task-types/*"],
+      "@users/*": ["app/users/*"],
+      "@components/*": ["app/components/*"],
       "@hooks/*": ["app/hooks/*"]
     },
     "target": "es5",

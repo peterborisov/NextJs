@@ -2,7 +2,7 @@ import { FC, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Table, Badge, Pagination } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
-import { Task } from "@task-types/task-types";
+import { Task } from "@tasks/task-types/task-types";
 import { setPage, setSorting } from "@tasks/tasks-slice";
 import { useSorting } from "@hooks/useSorting";
 import type { RootState } from "@app/store/store";

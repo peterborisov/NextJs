@@ -1,6 +1,6 @@
 "use client";
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
-import { Task } from "@task-types/task-types";
+import { Task } from "@tasks/task-types/task-types";
 import { v4 as uuidv4 } from "uuid";
 
 interface TasksState {
