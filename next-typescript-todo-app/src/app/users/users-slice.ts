@@ -27,7 +27,6 @@ export const initialState: UsersState = {
     phone: "1-770-736-8031 x56442",
     website: "hildegard.org",
     company: {
-      name: "Romaguera-Crona",
       catchPhrase: "Multi-layered client-server neural-net",
       bs: "harness real-time e-markets",
     },
@@ -40,7 +39,7 @@ export const fetchUsers = createAsyncThunk("users/", async () => {
 });
 
 export const fetchUser = createAsyncThunk(`user`, async (id: number) => {
-  const res = await fetch(`/api/user/${id}`);
+  const res = await fetch(`/api/users/${id}`);
   return res.json();
 });
 

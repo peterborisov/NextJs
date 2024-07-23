@@ -1,5 +1,5 @@
 "use client";
-import { memo } from "react";
+
 import { Sidebar } from "flowbite-react";
 import {
   HomeIcon,
@@ -7,7 +7,7 @@ import {
   PencilSquareIcon,
 } from "@heroicons/react/24/solid";
 
-const SidebarComponent = () => {
+export const SidebarComponent = () => {
   return (
     <Sidebar
       className="h-[100vh] w-full bg-gray-400"
@@ -29,5 +29,3 @@ const SidebarComponent = () => {
     </Sidebar>
   );
 };
-
-export default memo(SidebarComponent);

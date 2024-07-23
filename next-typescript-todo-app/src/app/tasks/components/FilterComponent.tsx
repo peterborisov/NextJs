@@ -25,7 +25,7 @@ export const FilterComponent: FC<TasksProps> = ({
   };
 
   return (
-    <div className="my-4 flex items-end gap-4">
+    <div className="mb-4 flex items-end gap-4">
       <div>
         <Label htmlFor="task-id">Filter by task ID</Label>
         <TextInput

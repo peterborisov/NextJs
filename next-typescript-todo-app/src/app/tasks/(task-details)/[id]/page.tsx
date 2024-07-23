@@ -3,7 +3,7 @@
 import React from "react";
 import { Provider } from "react-redux";
 import { store } from "@app/store/store";
-import { TaskDetails } from "./taskDetails";
+import { TaskDetails } from "./TaskDetails";
 
 interface Props {
   params: { id: number };

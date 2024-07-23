@@ -2,7 +2,7 @@ import "@testing-library/jest-dom";
 
 import { render, screen, fireEvent } from "@testing-library/react";
 
-import { TaskDetails } from "../taskDetails";
+import { TaskDetails } from "../TaskDetails";
 import { Provider } from "react-redux";
 import { store } from "@app/store/store";
 

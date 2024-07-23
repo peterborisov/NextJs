@@ -16,13 +16,13 @@ export const UsersTableComponent: FC<TableProps> = ({ data }) => {
 
   return (
     <>
-      <div className="my-4"></div>
       <Table striped hoverable>
         <Table.Head>
           <Table.HeadCell>Name</Table.HeadCell>
           <Table.HeadCell>Email</Table.HeadCell>
           <Table.HeadCell>City</Table.HeadCell>
-          <Table.HeadCell align="right">Phone</Table.HeadCell>
+          <Table.HeadCell>Phone</Table.HeadCell>
+          <Table.HeadCell />
         </Table.Head>
         <Table.Body className="divide-y">
           {data.map((user: User) => (
@@ -30,11 +30,10 @@ export const UsersTableComponent: FC<TableProps> = ({ data }) => {
               <Table.Cell>{user.name}</Table.Cell>
               <Table.Cell>{user.email}</Table.Cell>
               <Table.Cell>{user.address.city}</Table.Cell>
-              <Table.Cell
-                className="flex items-center justify-end gap-4"
-                align="right"
-              >
+              <Table.Cell className="flex items-center gap-4">
                 {user.phone}
+              </Table.Cell>
+              <Table.Cell>
                 <Button onClick={() => userDetails(user)}>User Details</Button>
               </Table.Cell>
             </Table.Row>
