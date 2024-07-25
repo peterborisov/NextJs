@@ -2,28 +2,24 @@ import { FC, useEffect } from "react";
 import { useRouter } from "next/navigation";
 import { Button, Table, Badge, Pagination } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
+import { ArrowLongUpIcon } from "@heroicons/react/24/solid";
+
 import { Task } from "@tasks/task-types/task-types";
 import { setPage, setSorting } from "@tasks/tasks-slice";
 import { useSorting } from "@hooks/useSorting";
 import type { RootState } from "@app/store/store";
 
 interface TableProps {
-  filterValue: string;
-  isChecked: boolean;
   data: Task[];
 }
 
-export const TableComponent: FC<TableProps> = ({
-  filterValue,
-  isChecked,
-  data,
-}) => {
+export const TableComponent: FC<TableProps> = ({ data }) => {
   const router = useRouter();
   const { sortUserId } = useSorting();
   const dispatch = useDispatch();
 
   const state = useSelector((state: RootState) => state.tasksState);
-  const { page, sorting, orderBy } = state;
+  const { filterValue, isChecked, page, sorting, orderBy } = state;
 
   useEffect(() => {
     router.push(`?sort=${sorting}&orderBy=${orderBy}`);
@@ -34,7 +30,7 @@ export const TableComponent: FC<TableProps> = ({
   }
 
   const filteredRows = data.filter((task) => {
-    return task.id.toString().includes(filterValue);
+    return task.id.toString().includes(filterValue!);
   });
 
   const taskDetails = (task: Task) => {
@@ -60,7 +56,9 @@ export const TableComponent: FC<TableProps> = ({
       </div>
       <Table striped hoverable>
         <Table.Head>
-          <Table.HeadCell onClick={handlesSorting}>userId</Table.HeadCell>
+          <Table.HeadCell onClick={handlesSorting} className="flex gap-2">
+            userId <ArrowLongUpIcon className="h-4" />
+          </Table.HeadCell>
           <Table.HeadCell>ID</Table.HeadCell>
           <Table.HeadCell>Completed</Table.HeadCell>
           <Table.HeadCell align="right">Title</Table.HeadCell>

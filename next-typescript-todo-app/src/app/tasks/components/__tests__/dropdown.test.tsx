@@ -1,7 +1,8 @@
 import "@testing-library/jest-dom";
 import { render, screen } from "@testing-library/react";
-import { DropdownComponent } from "../DropdownComponent";
 import { Provider } from "react-redux";
+
+import { DropdownComponent } from "@components/index";
 import { store } from "@app/store/store";
 
 describe("Render DropdownComponent", () => {

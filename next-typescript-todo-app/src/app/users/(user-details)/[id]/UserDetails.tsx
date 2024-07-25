@@ -5,9 +5,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/navigation";
 import { Button, Card } from "flowbite-react";
 
-import { CellItem } from "./components/CellItem";
 import type { RootState } from "@app/store/store";
 import { fetchUser } from "@users/users-slice";
+import { fetchTasks } from "@app/tasks/tasks-slice";
+import { TableComponent, FilterComponent } from "@components/index";
+import { CellItem } from "./components/CellItem";
 
 type Props = {
   userId: number;
@@ -19,9 +21,10 @@ export const UserDetails: FC<Props> = ({ userId }) => {
 
   useEffect(() => {
     dispatch(fetchUser(userId));
+    dispatch(fetchTasks());
   }, [dispatch]);
 
-  const data = useSelector((state: RootState) => state.usersState);
+  const state = useSelector((state: RootState) => state);
 
   const {
     id,
@@ -38,7 +41,10 @@ export const UserDetails: FC<Props> = ({ userId }) => {
     phone,
     website,
     company: { catchPhrase, bs },
-  } = data.user;
+  } = state.usersState.user;
+
+  const tasks = state.tasksState.tasks;
+  const userTasks = tasks.filter((task) => task.userId === +userId);
 
   const handleBackToUsers = () => {
     router.push("/users");
@@ -62,7 +68,9 @@ export const UserDetails: FC<Props> = ({ userId }) => {
           <CellItem title="Company" value={`${catchPhrase}, ${bs}`} />
         </div>
       </Card>
-
+      <div className="text-2xl font-bold">Tasks:</div>
+      <FilterComponent />
+      <TableComponent data={userTasks} />
       <Button onClick={handleBackToUsers}>All Users</Button>
     </>
   );

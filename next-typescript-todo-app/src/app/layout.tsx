@@ -13,10 +13,10 @@ export default function RootLayout({
       <body>
         <div className="container mx-auto my-8 flex gap-4">
           <div className="w-64 flex-none">
-            <div className="relative h-40 w-64">
+            <div className="relative mb-4 h-20 w-auto">
               <Image
                 priority={false}
-                src="/images/pebor-logo.png"
+                src="/images/logo-transparent.png"
                 alt="App logo"
                 fill
               />

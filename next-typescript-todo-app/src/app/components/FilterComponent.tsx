@@ -1,24 +1,30 @@
-import { FC } from "react";
 import { useRouter, useSearchParams } from "next/navigation";
+import { useDispatch, useSelector } from "react-redux";
 import { Button, Label, TextInput, Checkbox } from "flowbite-react";
+import { setFilterValue, setIsChecked } from "@tasks/tasks-slice";
+
+import type { RootState } from "@app/store/store";
 import { DropdownComponent } from "./index";
 
-type TasksProps = {
-  onFilterChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
-  isChecked: boolean;
-  handleChecked: (e: React.ChangeEvent<HTMLInputElement>) => void;
-};
-
-export const FilterComponent: FC<TasksProps> = ({
-  onFilterChange,
-  isChecked,
-  handleChecked,
-}) => {
+export const FilterComponent = () => {
   const router = useRouter();
+  const dispatch = useDispatch();
+
   //   const searchParams = useSearchParams();
 
   //   const searchParam = searchParams.get("sort");
   //   const orderByParam = searchParams.get("orderBy");
+  const data = useSelector((state: RootState) => state.tasksState);
+  const { isChecked } = data;
+
+  const onFilterChange = (e) => {
+    e.preventDefault();
+    dispatch(setFilterValue(e.target.value));
+  };
+
+  const handleChecked = () => {
+    dispatch(setIsChecked(!isChecked));
+  };
 
   const addTask = () => {
     router.push(`/tasks/addNewTask`);
