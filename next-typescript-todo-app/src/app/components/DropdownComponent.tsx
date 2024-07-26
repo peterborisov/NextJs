@@ -7,14 +7,16 @@ import { setOrderByLabel } from "@tasks/tasks-slice";
 export const DropdownComponent = () => {
   const dispatch = useDispatch();
 
-  const state = useSelector((state: RootState) => state.tasksState);
+  const orderByLabel = useSelector(
+    (state: RootState) => state.tasksState.orderByLabel,
+  );
 
   const handleOrderByLabel = () => {
     dispatch(setOrderByLabel("test"));
   };
 
   return (
-    <Dropdown onChange={handleOrderByLabel} label={state.orderByLabel}>
+    <Dropdown onChange={handleOrderByLabel} label={orderByLabel}>
       <Dropdown.Item>User ID</Dropdown.Item>
       <Dropdown.Item>Task ID</Dropdown.Item>
       <Dropdown.Item>Title</Dropdown.Item>

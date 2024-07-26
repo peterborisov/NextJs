@@ -6,8 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button, Card } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
-import { fetchUser } from "@users/users-slice";
-import { fetchTasks } from "@app/tasks/tasks-slice";
+import { useData } from "@hooks/useData";
 import { TableComponent, FilterComponent } from "@components/index";
 import { CellItem } from "./components/CellItem";
 
@@ -18,13 +17,14 @@ type Props = {
 export const UserDetails: FC<Props> = ({ userId }) => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const { fetchTasks, fetchUser } = useData();
 
   useEffect(() => {
     dispatch(fetchUser(userId));
     dispatch(fetchTasks());
   }, [dispatch]);
 
-  const state = useSelector((state: RootState) => state);
+  const { usersState, tasksState } = useSelector((state: RootState) => state);
 
   const {
     id,
@@ -41,9 +41,9 @@ export const UserDetails: FC<Props> = ({ userId }) => {
     phone,
     website,
     company: { catchPhrase, bs },
-  } = state.usersState.user;
+  } = usersState.user;
 
-  const tasks = state.tasksState.tasks;
+  const tasks = tasksState.tasks;
   const userTasks = tasks.filter((task) => task.userId === +userId);
 
   const handleBackToUsers = () => {

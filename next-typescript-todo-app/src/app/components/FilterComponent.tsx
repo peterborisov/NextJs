@@ -1,6 +1,7 @@
 import { useRouter, useSearchParams } from "next/navigation";
 import { useDispatch, useSelector } from "react-redux";
 import { Button, Label, TextInput, Checkbox } from "flowbite-react";
+
 import { setFilterValue, setIsChecked } from "@tasks/tasks-slice";
 
 import type { RootState } from "@app/store/store";
@@ -14,8 +15,9 @@ export const FilterComponent = () => {
 
   //   const searchParam = searchParams.get("sort");
   //   const orderByParam = searchParams.get("orderBy");
-  const data = useSelector((state: RootState) => state.tasksState);
-  const { isChecked } = data;
+  const isChecked = useSelector(
+    (state: RootState) => state.tasksState.isChecked,
+  );
 
   const onFilterChange = (e) => {
     e.preventDefault();

@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button, Card, Badge } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
-import { fetchTask } from "@tasks/tasks-slice";
+import { useData } from "@hooks/useData";
 
 type Props = {
   taskId: number;
@@ -15,10 +15,11 @@ type Props = {
 export const TaskDetails: FC<Props> = ({ taskId }) => {
   const router = useRouter();
   const dispatch = useDispatch();
+  const { fetchTask } = useData();
 
-  const data = useSelector((state: RootState) => state.tasksState);
+  const task = useSelector((state: RootState) => state.tasksState.task);
 
-  const { userId, id, title, completed } = data.task;
+  const { userId, id, title, completed } = task;
 
   useEffect(() => {
     dispatch(fetchTask(taskId));

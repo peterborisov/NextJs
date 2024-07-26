@@ -2,6 +2,8 @@
 
 Example Tasks application built with Next.js and Typescript
 
+![User details](./public/images/user-details.png)
+
 Run `pnpm run dev` to run app locally (`localhost:3000`)
 
 - pnpm

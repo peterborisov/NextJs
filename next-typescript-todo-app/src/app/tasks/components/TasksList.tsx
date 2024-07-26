@@ -2,13 +2,14 @@ import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
 import { TableComponent, FilterComponent } from "@components/index";
-import { fetchTasks } from "@tasks/tasks-slice";
 import type { RootState } from "@app/store/store";
+import { useData } from "@hooks/useData";
 
 export const TasksList = () => {
   const dispatch = useDispatch();
+  const { fetchTasks } = useData();
 
-  const data = useSelector((state: RootState) => state.tasksState);
+  const tasks = useSelector((state: RootState) => state.tasksState.tasks);
 
   useEffect(() => {
     dispatch(fetchTasks());
@@ -17,7 +18,7 @@ export const TasksList = () => {
   return (
     <>
       <FilterComponent />
-      <TableComponent data={data.tasks} />
+      <TableComponent data={tasks} />
     </>
   );
 };

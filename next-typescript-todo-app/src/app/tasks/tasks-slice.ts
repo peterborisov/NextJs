@@ -1,8 +1,8 @@
 "use client";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { Task } from "@tasks/task-types/task-types";
 import { v4 as uuidv4 } from "uuid";
-
+import { useData } from "@hooks/useData";
 interface TasksState {
   tasks: Task[];
   task: Task;
@@ -30,15 +30,7 @@ export const initialState: TasksState = {
   isChecked: false,
 };
 
-export const fetchTasks = createAsyncThunk("tasks/", async () => {
-  const response = await fetch(`/api/tasks`);
-  return await response.json();
-});
-
-export const fetchTask = createAsyncThunk(`task`, async (id: number) => {
-  const res = await fetch(`/api/tasks/${id}`);
-  return res.json();
-});
+const { fetchTask, fetchTasks } = useData();
 
 export const tasksSlice = createSlice({
   name: "tasksState",

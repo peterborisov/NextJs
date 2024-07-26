@@ -1,5 +1,5 @@
 import { NextResponse } from "next/server";
-import { usersUrl } from "@app/utils/endpoint";
+import { usersUrl } from "@utils/endpoint";
 
 export async function GET() {
   const res = await fetch(usersUrl);

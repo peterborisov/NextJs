@@ -19,6 +19,7 @@ module.exports = {
     "^@tasks(.*)$": "<rootDir>/src/app/tasks/$1",
     "^@users(.*)$": "<rootDir>/src/app/users/$1",
     "^@components(.*)$": "<rootDir>/src/app/components/$1",
+    "^@utils(.*)$": "<rootDir>/src/app/utils/$1",
     "@next/font/(.*)": `<rootDir>/__mocks__/nextFontMock.js`,
     "next/font/(.*)": `<rootDir>/__mocks__/nextFontMock.js`,
     "server-only": `<rootDir>/__mocks__/empty.js`,

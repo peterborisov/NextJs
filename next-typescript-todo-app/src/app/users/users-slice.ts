@@ -1,6 +1,7 @@
 "use client";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice } from "@reduxjs/toolkit";
 import { User } from "@users/users-types/users-types";
+import { useData } from "@hooks/useData";
 
 interface UsersState {
   users: User[];
@@ -33,15 +34,7 @@ export const initialState: UsersState = {
   },
 };
 
-export const fetchUsers = createAsyncThunk("users/", async () => {
-  const response = await fetch(`/api/users`);
-  return await response.json();
-});
-
-export const fetchUser = createAsyncThunk(`user`, async (id: number) => {
-  const res = await fetch(`/api/users/${id}`);
-  return res.json();
-});
+const { fetchUser, fetchUsers } = useData();
 
 export const usersSlice = createSlice({
   name: "usersState",

@@ -6,7 +6,8 @@
       "@tasks/*": ["app/tasks/*"],
       "@users/*": ["app/users/*"],
       "@components/*": ["app/components/*"],
-      "@hooks/*": ["app/hooks/*"]
+      "@hooks/*": ["app/hooks/*"],
+      "@utils/*": ["app/utils/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
