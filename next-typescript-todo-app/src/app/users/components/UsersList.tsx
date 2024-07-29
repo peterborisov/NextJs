@@ -3,12 +3,15 @@ import { useDispatch, useSelector } from "react-redux";
 import { BreadcrumbComponent } from "@app/components";
 
 import type { RootState } from "@app/store/store";
-import { useData } from "@hooks/useData";
+import { useData, useNav } from "@hooks/index";
 import { UsersTableComponent } from "./UsersTableComponent";
 
 export const UsersList = () => {
   const dispatch = useDispatch();
   const { fetchUsers } = useData();
+  const {
+    paths: { HOME, USERS },
+  } = useNav();
 
   useEffect(() => {
     dispatch(fetchUsers());
@@ -16,14 +19,9 @@ export const UsersList = () => {
 
   const users = useSelector((state: RootState) => state.usersState.users);
 
-  const breadcrumbItems = [
-    { path: "/", label: "Home" },
-    { path: "/users", label: "Users List" },
-  ];
-
   return (
     <>
-      <BreadcrumbComponent breadcrumbItems={breadcrumbItems} />
+      <BreadcrumbComponent breadcrumbItems={[HOME, USERS]} />
       <UsersTableComponent data={users} />
     </>
   );

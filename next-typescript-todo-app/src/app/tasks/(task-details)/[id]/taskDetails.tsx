@@ -6,7 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button, Card, Badge } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
-import { useData } from "@hooks/useData";
+import { useData, useNav } from "@hooks/index";
 import { BreadcrumbComponent } from "@app/components";
 
 type Props = {
@@ -22,19 +22,13 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
 
   const { userId, id, title, completed } = task;
 
-  const breadcrumbItems = [
-    { path: "/", label: "Home" },
-    { path: "/tasks", label: "Tasks List" },
-    { path: `/tasks/${id}`, label: id },
-  ];
+  const {
+    paths: { HOME, TASKS, TASK },
+  } = useNav(id);
 
   useEffect(() => {
     dispatch(fetchTask(taskId));
   }, [dispatch]);
-
-  const handleBackToTasks = () => {
-    router.push("/tasks");
-  };
 
   const styles = {
     p: "font-normal text-gray-700 dark:text-gray-400",
@@ -42,7 +36,7 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
   };
   return (
     <>
-      <BreadcrumbComponent breadcrumbItems={breadcrumbItems} />
+      <BreadcrumbComponent breadcrumbItems={[HOME, TASKS, TASK]} />
       <Card className="mx-auto my-44 w-[40%]">
         <h5 className={styles.h5}>Task Details:</h5>
         <p className={styles.p}>User ID: {userId}</p>
@@ -56,7 +50,6 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
           )}
         </p>
       </Card>
-      <Button onClick={handleBackToTasks}>All tasks</Button>
     </>
   );
 };

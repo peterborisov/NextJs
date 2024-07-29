@@ -7,11 +7,14 @@ import {
   BreadcrumbComponent,
 } from "@components/index";
 import type { RootState } from "@app/store/store";
-import { useData } from "@hooks/useData";
+import { useData, useNav } from "@hooks/index";
 
 export const TasksList = () => {
   const dispatch = useDispatch();
   const { fetchTasks } = useData();
+  const {
+    paths: { HOME, TASKS },
+  } = useNav();
 
   const tasks = useSelector((state: RootState) => state.tasksState.tasks);
 
@@ -26,7 +29,7 @@ export const TasksList = () => {
 
   return (
     <>
-      <BreadcrumbComponent breadcrumbItems={breadcrumbItems} />
+      <BreadcrumbComponent breadcrumbItems={[HOME, TASKS]} />
       <FilterComponent />
       <TableComponent data={tasks} />
     </>

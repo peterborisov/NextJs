@@ -7,7 +7,7 @@ import { Button, Card } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
 import { BreadcrumbComponent } from "@app/components";
-import { useData } from "@hooks/useData";
+import { useData, useNav } from "@hooks/index";
 import { TableComponent, FilterComponent } from "@components/index";
 import { CellItem } from "./components/CellItem";
 
@@ -44,22 +44,16 @@ export const UserDetails: FC<Props> = ({ userId }) => {
     company: { catchPhrase, bs },
   } = usersState.user;
 
+  const {
+    paths: { HOME, USERS, USER },
+  } = useNav(name);
+
   const tasks = tasksState.tasks;
   const userTasks = tasks.filter((task) => task.userId === +userId);
 
-  const handleBackToUsers = () => {
-    router.push("/users");
-  };
-
-  const breadcrumbItems = [
-    { path: "/", label: "Home" },
-    { path: "/users", label: "Users List" },
-    { path: `/users/${id}`, label: name },
-  ];
-
   return (
     <>
-      <BreadcrumbComponent breadcrumbItems={breadcrumbItems} />
+      <BreadcrumbComponent breadcrumbItems={[HOME, USERS, USER]} />
       <div className="text-4xl font-bold">{name}</div>
       <div className="text-2xl font-bold">ID: {id}</div>
       <Card className="mx-auto my-4">
@@ -79,7 +73,6 @@ export const UserDetails: FC<Props> = ({ userId }) => {
       <div className="text-2xl font-bold">Tasks:</div>
       <FilterComponent />
       <TableComponent data={userTasks} />
-      <Button onClick={handleBackToUsers}>All Users</Button>
     </>
   );
 };

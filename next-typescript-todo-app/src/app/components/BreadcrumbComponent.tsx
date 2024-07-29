@@ -7,10 +7,12 @@ export const BreadcrumbComponent: FC<BreadcrumbItems> = ({
 }) => {
   return (
     <>
-      <Breadcrumb className="mb-8 px-5 py-3" aria-label="Default breadcrumb">
+      <Breadcrumb className="my-4 px-5 py-3" aria-label="Default breadcrumb">
         {breadcrumbItems.map((item) => {
           return (
-            <Breadcrumb.Item href={item.path}>{item.label}</Breadcrumb.Item>
+            <Breadcrumb.Item key={item.label} href={item.path}>
+              {item.label}
+            </Breadcrumb.Item>
           );
         })}
       </Breadcrumb>
