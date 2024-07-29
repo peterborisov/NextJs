@@ -1,6 +1,8 @@
+"use client";
+
 import "@app/global.css";
 
-import { SidebarComponent } from "@components/SidebarComponent";
+import { SidebarComponent } from "@components/index";
 import Image from "next/image";
 
 export default function RootLayout({

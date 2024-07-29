@@ -7,6 +7,7 @@ import { Button, Card, Badge } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
 import { useData } from "@hooks/useData";
+import { BreadcrumbComponent } from "@app/components";
 
 type Props = {
   taskId: number;
@@ -20,6 +21,12 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
   const task = useSelector((state: RootState) => state.tasksState.task);
 
   const { userId, id, title, completed } = task;
+
+  const breadcrumbItems = [
+    { path: "/", label: "Home" },
+    { path: "/tasks", label: "Tasks List" },
+    { path: `/tasks/${id}`, label: id },
+  ];
 
   useEffect(() => {
     dispatch(fetchTask(taskId));
@@ -35,6 +42,7 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
   };
   return (
     <>
+      <BreadcrumbComponent breadcrumbItems={breadcrumbItems} />
       <Card className="mx-auto my-44 w-[40%]">
         <h5 className={styles.h5}>Task Details:</h5>
         <p className={styles.p}>User ID: {userId}</p>

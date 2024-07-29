@@ -6,6 +6,7 @@ import { useRouter } from "next/navigation";
 import { Button, Card } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
+import { BreadcrumbComponent } from "@app/components";
 import { useData } from "@hooks/useData";
 import { TableComponent, FilterComponent } from "@components/index";
 import { CellItem } from "./components/CellItem";
@@ -50,8 +51,15 @@ export const UserDetails: FC<Props> = ({ userId }) => {
     router.push("/users");
   };
 
+  const breadcrumbItems = [
+    { path: "/", label: "Home" },
+    { path: "/users", label: "Users List" },
+    { path: `/users/${id}`, label: name },
+  ];
+
   return (
     <>
+      <BreadcrumbComponent breadcrumbItems={breadcrumbItems} />
       <div className="text-4xl font-bold">{name}</div>
       <div className="text-2xl font-bold">ID: {id}</div>
       <Card className="mx-auto my-4">
