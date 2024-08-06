@@ -3,7 +3,7 @@ import { render } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 import { store } from "@app/store/store";
-import { TableComponent } from "@components/index";
+import { TableComponent } from "../index";
 
 // Mock useRouter:
 jest.mock("next/navigation", () => ({

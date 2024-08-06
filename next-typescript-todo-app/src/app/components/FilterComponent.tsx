@@ -15,11 +15,12 @@ export const FilterComponent = () => {
 
   //   const searchParam = searchParams.get("sort");
   //   const orderByParam = searchParams.get("orderBy");
+
   const isChecked = useSelector(
     (state: RootState) => state.tasksState.isChecked,
   );
 
-  const onFilterChange = (e) => {
+  const onFilterChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     dispatch(setFilterValue(e.target.value));
   };

@@ -2,15 +2,31 @@
   "compilerOptions": {
     "baseUrl": "src",
     "paths": {
-      "@app/*": ["app/*"],
-      "@tasks/*": ["app/tasks/*"],
-      "@users/*": ["app/users/*"],
-      "@components/*": ["app/components/*"],
-      "@hooks/*": ["app/hooks/*"],
-      "@utils/*": ["app/utils/*"]
+      "@app/*": [
+        "app/*"
+      ],
+      "@tasks/*": [
+        "app/tasks/*"
+      ],
+      "@users/*": [
+        "app/users/*"
+      ],
+      "@components/*": [
+        "app/components/*"
+      ],
+      "@hooks/*": [
+        "app/hooks/*"
+      ],
+      "@utils/*": [
+        "app/utils/*"
+      ]
     },
     "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
+    "lib": [
+      "dom",
+      "dom.iterable",
+      "esnext"
+    ],
     "allowJs": true,
     "skipLibCheck": true,
     "esModuleInterop": true,
@@ -27,8 +43,15 @@
       {
         "name": "next"
       }
-    ]
+    ],
+    "incremental": true
   },
-  "exclude": ["node_modules"],
-  "include": ["next-env.d.ts", "**/*.tsx", ".next/types/**/*.ts"]
+  "exclude": [
+    "node_modules"
+  ],
+  "include": [
+    "next-env.d.ts",
+    "**/*.tsx",
+    ".next/types/**/*.ts"
+  ]
 }

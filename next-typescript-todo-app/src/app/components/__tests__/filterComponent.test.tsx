@@ -1,13 +1,9 @@
 import "@testing-library/jest-dom";
-import {
-  render,
-  screen,
-  fireEvent,
-  getByLabelText,
-} from "@testing-library/react";
-import { FilterComponent } from "../FilterComponent";
+import { render, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
+
 import { store } from "@app/store/store";
+import { FilterComponent } from "../index";
 
 // Mock useRouter:
 jest.mock("next/navigation", () => ({

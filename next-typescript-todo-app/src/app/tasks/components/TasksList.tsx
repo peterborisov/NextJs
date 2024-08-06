@@ -18,11 +18,6 @@ export const TasksList = () => {
 
   const tasks = useSelector((state: RootState) => state.tasksState.tasks);
 
-  const breadcrumbItems = [
-    { path: "/", label: "Home" },
-    { path: "/tasks", label: "Tasks List" },
-  ];
-
   useEffect(() => {
     dispatch(fetchTasks());
   }, [dispatch]);

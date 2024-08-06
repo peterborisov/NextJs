@@ -2,8 +2,7 @@
 
 import { useEffect, FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { Button, Card } from "flowbite-react";
+import { Card } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
 import { BreadcrumbComponent } from "@app/components";
@@ -16,7 +15,6 @@ type Props = {
 };
 
 export const UserDetails: FC<Props> = ({ userId }) => {
-  const router = useRouter();
   const dispatch = useDispatch();
   const { fetchTasks, fetchUser } = useData();
 

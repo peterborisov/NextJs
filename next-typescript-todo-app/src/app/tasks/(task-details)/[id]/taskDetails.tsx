@@ -2,8 +2,7 @@
 
 import { useEffect, FC } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useRouter } from "next/navigation";
-import { Button, Card, Badge } from "flowbite-react";
+import { Card, Badge } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
 import { useData, useNav } from "@hooks/index";
@@ -14,7 +13,6 @@ type Props = {
 };
 
 export const TaskDetails: FC<Props> = ({ taskId }) => {
-  const router = useRouter();
   const dispatch = useDispatch();
   const { fetchTask } = useData();
 
@@ -34,6 +32,7 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
     p: "font-normal text-gray-700 dark:text-gray-400",
     h5: "text-2xl font-bold tracking-tight text-gray-900 dark:text-white",
   };
+
   return (
     <>
       <BreadcrumbComponent breadcrumbItems={[HOME, TASKS, TASK]} />

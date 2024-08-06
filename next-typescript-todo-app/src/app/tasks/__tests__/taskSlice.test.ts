@@ -1,5 +1,3 @@
-import { configureStore } from "@reduxjs/toolkit";
-
 import tasksSlice, {
   setPage,
   initialState,
@@ -8,7 +6,6 @@ import tasksSlice, {
   setOrderByLabel,
   setFilterValue,
   setIsChecked,
-  fetchTasks,
 } from "../tasks-slice";
 
 describe("tests for tasksSlice", () => {
