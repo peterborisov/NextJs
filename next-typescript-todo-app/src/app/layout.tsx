@@ -2,6 +2,9 @@
 
 import "@app/global.css";
 
+import { Provider } from "react-redux";
+import { store } from "@app/store/store";
+
 import { SidebarComponent } from "@components/index";
 import Image from "next/image";
 
@@ -25,7 +28,9 @@ export default function RootLayout({
             </div>
             <SidebarComponent />
           </div>
-          <div className="w-full flex-1 bg-gray-200">{children}</div>
+          <div className="w-full flex-1 bg-gray-200">
+            <Provider store={store}>{children}</Provider>
+          </div>
         </div>
       </body>
     </html>
