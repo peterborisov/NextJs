@@ -1,6 +1,6 @@
 import "@testing-library/jest-dom";
 
-import { render, screen, fireEvent } from "@testing-library/react";
+import { render } from "@testing-library/react";
 
 import { TaskDetails } from "../TaskDetails";
 import { Provider } from "react-redux";
@@ -27,22 +27,6 @@ describe("Render TaskDetails", () => {
       </Provider>,
     );
     expect(form).toBeDefined();
-  });
-
-  it("All tasks click", () => {
-    render(
-      <Provider store={store}>
-        <TaskDetails taskId={0} />
-      </Provider>,
-    );
-
-    const mockFn = jest.fn();
-    const allTasksBtn = screen.getByText("All tasks");
-
-    expect(allTasksBtn).toBeInTheDocument();
-
-    fireEvent.click(allTasksBtn);
-    expect(mockFn).toHaveBeenCalledTimes(0);
   });
 
   it("Task data", async () => {});

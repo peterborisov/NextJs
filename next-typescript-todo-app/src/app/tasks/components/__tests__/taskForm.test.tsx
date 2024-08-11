@@ -23,6 +23,7 @@ describe("Render TaskForm", () => {
     );
     expect(form).toBeDefined();
   });
+
   it("On button click", () => {
     render(
       <Provider store={store}>

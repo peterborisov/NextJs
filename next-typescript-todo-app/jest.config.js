@@ -12,7 +12,7 @@ module.exports = {
   moduleNameMapper: {
     uuid: require.resolve("uuid"),
     "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-    "^.+\\.(css|sass|scss)$": "<rootDir>/__mocks__/styleMock.js",
+    "^.+\\.(css|sass|scss)$": "<rootDir>/styleMock.js",
     "^.+\\.(png|jpg|jpeg|gif|webp|avif|ico|bmp|svg)$/i": `<rootDir>/__mocks__/fileMock.js`,
     "^@app(.*)$": "<rootDir>/src/app/$1",
     "^@hooks(.*)$": "<rootDir>/src/app/hooks/$1",
