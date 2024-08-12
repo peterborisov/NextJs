@@ -56,7 +56,11 @@ export const TableComponent: FC<TableProps> = ({ data }) => {
       </div>
       <Table striped hoverable>
         <Table.Head>
-          <Table.HeadCell onClick={handlesSorting} className="flex gap-2">
+          <Table.HeadCell
+            data-testid="user-id"
+            onClick={handlesSorting}
+            className="flex gap-2"
+          >
             userId <ArrowLongUpIcon className="h-4" />
           </Table.HeadCell>
           <Table.HeadCell>ID</Table.HeadCell>
@@ -82,7 +86,10 @@ export const TableComponent: FC<TableProps> = ({ data }) => {
                   align="right"
                 >
                   {task.title}
-                  <Button onClick={() => taskDetails(task)}>
+                  <Button
+                    data-testid="task-details"
+                    onClick={() => taskDetails(task)}
+                  >
                     Task Details
                   </Button>
                 </Table.Cell>

@@ -1,5 +1,5 @@
 import "@testing-library/jest-dom";
-import { render } from "@testing-library/react";
+import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 import { store } from "@app/store/store";
@@ -34,6 +34,7 @@ let mockData = [
     completed: true,
   },
 ];
+
 const state = store.getState().tasksState;
 const { filterValue, isChecked, page, sorting, orderBy } = state;
 
@@ -47,9 +48,23 @@ describe("Render TasksList", () => {
     expect(taskTable).toBeDefined();
   });
 
-  it("isChecked", () => {
-    if (!isChecked) {
-      mockData = mockData.filter((item) => item.completed);
-    }
+  it("task details", () => {
+    render(
+      <Provider store={store}>
+        <TableComponent data={mockData} />
+      </Provider>,
+    );
+    const btn = screen.getAllByTestId("task-details");
+    fireEvent.click(btn[0]);
+  });
+
+  it("user id cell", () => {
+    render(
+      <Provider store={store}>
+        <TableComponent data={mockData} />
+      </Provider>,
+    );
+    const btn = screen.getByTestId("user-id");
+    fireEvent.click(btn);
   });
 });

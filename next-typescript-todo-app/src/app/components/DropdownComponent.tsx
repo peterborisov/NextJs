@@ -16,8 +16,12 @@ export const DropdownComponent = () => {
   };
 
   return (
-    <Dropdown onChange={handleOrderByLabel} label={orderByLabel}>
-      <Dropdown.Item>User ID</Dropdown.Item>
+    <Dropdown
+      data-testid="dropdown"
+      onChange={handleOrderByLabel}
+      label={orderByLabel}
+    >
+      <Dropdown.Item data-testid="dropdown-item">User ID</Dropdown.Item>
       <Dropdown.Item>Task ID</Dropdown.Item>
       <Dropdown.Item>Title</Dropdown.Item>
     </Dropdown>

@@ -47,7 +47,12 @@ export const FilterComponent = () => {
       <Button data-testid="add-task" onClick={() => addTask()}>
         Add Task
       </Button>
-      <Checkbox id="completed" checked={isChecked} onChange={handleChecked} />
+      <Checkbox
+        id="completed"
+        data-testid="completed"
+        checked={isChecked}
+        onChange={handleChecked}
+      />
       <Label htmlFor="completed">Show only completed Tasks</Label>
     </div>
   );
