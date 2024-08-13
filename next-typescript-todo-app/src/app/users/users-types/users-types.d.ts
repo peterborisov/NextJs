@@ -3,7 +3,7 @@ export type User = {
   name: string;
   username: string;
   email: string;
-  address: {
+  address?: {
     street: string;
     suite: string;
     city: string;
@@ -13,9 +13,9 @@ export type User = {
       lng: string;
     };
   };
-  phone: string;
-  website: string;
-  company: {
+  phone?: string;
+  website?: string;
+  company?: {
     catchPhrase: string;
     bs: string;
   };

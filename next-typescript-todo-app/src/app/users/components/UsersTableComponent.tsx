@@ -29,12 +29,17 @@ export const UsersTableComponent: FC<TableProps> = ({ data }) => {
             <Table.Row key={user.id}>
               <Table.Cell>{user.name}</Table.Cell>
               <Table.Cell>{user.email}</Table.Cell>
-              <Table.Cell>{user.address.city}</Table.Cell>
+              <Table.Cell>{user.address?.city}</Table.Cell>
               <Table.Cell className="flex items-center gap-4">
                 {user.phone}
               </Table.Cell>
               <Table.Cell>
-                <Button onClick={() => userDetails(user)}>User Details</Button>
+                <Button
+                  data-testid="user-details"
+                  onClick={() => userDetails(user)}
+                >
+                  User Details
+                </Button>
               </Table.Cell>
             </Table.Row>
           ))}
