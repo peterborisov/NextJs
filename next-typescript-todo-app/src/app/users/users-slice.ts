@@ -1,5 +1,6 @@
 "use client";
 import { createSlice } from "@reduxjs/toolkit";
+import { v4 as uuidv4 } from "uuid";
 import { User } from "@users/users-types/users-types";
 import { useData } from "@hooks/useData";
 
@@ -10,28 +11,7 @@ interface UsersState {
 
 export const initialState: UsersState = {
   users: [],
-  user: {
-    id: 1,
-    name: "Leanne Graham",
-    username: "Bret",
-    email: "Sincere@april.biz",
-    address: {
-      street: "Kulas Light",
-      suite: "Apt. 556",
-      city: "Gwenborough",
-      zipcode: "92998-3874",
-      geo: {
-        lat: "-37.3159",
-        lng: "81.1496",
-      },
-    },
-    phone: "1-770-736-8031 x56442",
-    website: "hildegard.org",
-    company: {
-      catchPhrase: "Multi-layered client-server neural-net",
-      bs: "harness real-time e-markets",
-    },
-  },
+  user: {},
 };
 
 const { fetchUser, fetchUsers } = useData();
@@ -39,7 +19,18 @@ const { fetchUser, fetchUsers } = useData();
 export const usersSlice = createSlice({
   name: "usersState",
   initialState,
-  reducers: {},
+  reducers: {
+    addUser: (state, action) => {
+      const newUser = {
+        id: uuidv4(),
+        name: action.payload.name,
+        email: action.payload.email,
+        city: action.payload.city,
+        phone: action.payload.phone,
+      };
+      state.users = [...state.users, newUser];
+    },
+  },
   extraReducers: (builder) => {
     builder.addCase(fetchUsers.fulfilled, (state, action) => {
       state.users = action.payload.data;
@@ -49,5 +40,7 @@ export const usersSlice = createSlice({
     });
   },
 });
+
+export const { addUser } = usersSlice.actions;
 
 export default usersSlice.reducer;

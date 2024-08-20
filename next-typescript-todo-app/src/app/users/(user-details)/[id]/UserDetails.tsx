@@ -25,23 +25,8 @@ export const UserDetails: FC<Props> = ({ userId }) => {
 
   const { usersState, tasksState } = useSelector((state: RootState) => state);
 
-  const {
-    id,
-    name,
-    username,
-    email,
-    address: {
-      street,
-      suite,
-      city,
-      zipcode,
-      geo: { lat, lng },
-    },
-    phone,
-    website,
-    company: { catchPhrase, bs },
-  } = usersState.user;
-
+  const { id, name, username, email, address, phone, website, company } =
+    usersState.user;
   const {
     paths: { HOME, USERS, USER },
   } = useNav(name);
@@ -60,12 +45,18 @@ export const UserDetails: FC<Props> = ({ userId }) => {
           <CellItem title="Email" value={email} />
           <CellItem
             title="Address"
-            value={`${street}, ${suite}, ${city}, ${zipcode}`}
+            value={`${address?.street}, ${address?.suite}, ${address?.city}, ${address?.zipcode}`}
           />
-          <CellItem title="Geo" value={`${lat}, ${lng}`} />
+          <CellItem
+            title="Geo"
+            value={`${address?.geo?.lat}, ${address?.geo.lng}`}
+          />
           <CellItem title="Phone" value={phone} />
           <CellItem title="Web site" value={website} />
-          <CellItem title="Company" value={`${catchPhrase}, ${bs}`} />
+          <CellItem
+            title="Company"
+            value={`${company?.catchPhrase}, ${company?.bs}`}
+          />
         </div>
       </Card>
       <div className="text-2xl font-bold">Tasks:</div>

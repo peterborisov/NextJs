@@ -1,8 +1,8 @@
 export type User = {
-  id: number;
-  name: string;
-  username: string;
-  email: string;
+  id?: number;
+  name?: string;
+  username?: string;
+  email?: string;
   address?: {
     street: string;
     suite: string;
@@ -19,4 +19,11 @@ export type User = {
     catchPhrase: string;
     bs: string;
   };
+};
+
+export type UserFormInputs = {
+  name: string;
+  email: string;
+  city: string;
+  phone: string;
 };

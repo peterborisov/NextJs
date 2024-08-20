@@ -14,8 +14,19 @@ export const UsersTableComponent: FC<TableProps> = ({ data }) => {
     router.push(`/users/${user.id}`);
   };
 
+  const addNewUser = () => {
+    router.push(`/users/addUser`);
+  };
+
   return (
     <>
+      <Button
+        className="mb-4 mt-9"
+        data-testid="user-details"
+        onClick={addNewUser}
+      >
+        Add new User
+      </Button>
       <Table striped hoverable>
         <Table.Head>
           <Table.HeadCell>Name</Table.HeadCell>

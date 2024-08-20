@@ -2,7 +2,7 @@ import { FC } from "react";
 
 type CellItemProps = {
   title: string;
-  value: string | number;
+  value: string | number | undefined;
 };
 
 export const CellItem: FC<CellItemProps> = ({ title, value }) => {
