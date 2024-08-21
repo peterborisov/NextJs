@@ -1,14 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import {
-  TableComponent,
-  FilterComponent,
-  BreadcrumbComponent,
-} from "@components/index";
+import { FilterComponent, BreadcrumbComponent } from "@components/index";
 import type { RootState } from "@app/store/store";
 import { useData, useNav } from "@hooks/index";
-
+import { TasksTableComponent } from "./TasksTableComponent";
 export const TasksList = () => {
   const dispatch = useDispatch();
   const { fetchTasks } = useData();
@@ -26,7 +22,7 @@ export const TasksList = () => {
     <>
       <BreadcrumbComponent breadcrumbItems={[HOME, TASKS]} />
       <FilterComponent />
-      <TableComponent data={tasks} />
+      <TasksTableComponent data={tasks} />
     </>
   );
 };

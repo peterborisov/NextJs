@@ -7,7 +7,8 @@ import { Card } from "flowbite-react";
 import type { RootState } from "@app/store/store";
 import { BreadcrumbComponent } from "@app/components";
 import { useData, useNav } from "@hooks/index";
-import { TableComponent, FilterComponent } from "@components/index";
+import { FilterComponent } from "@components/index";
+import { TasksTableComponent } from "@tasks/components/index";
 import { CellItem } from "./components/CellItem";
 
 type Props = {
@@ -61,7 +62,7 @@ export const UserDetails: FC<Props> = ({ userId }) => {
       </Card>
       <div className="text-2xl font-bold">Tasks:</div>
       <FilterComponent />
-      <TableComponent data={userTasks} />
+      <TasksTableComponent data={userTasks} />
     </>
   );
 };

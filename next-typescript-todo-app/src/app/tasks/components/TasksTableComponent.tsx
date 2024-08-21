@@ -13,7 +13,7 @@ interface TableProps {
   data: Task[];
 }
 
-export const TableComponent: FC<TableProps> = ({ data }) => {
+export const TasksTableComponent: FC<TableProps> = ({ data }) => {
   const router = useRouter();
   const { sortUserId } = useSorting();
   const dispatch = useDispatch();

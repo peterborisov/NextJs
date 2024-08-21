@@ -3,7 +3,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import { Provider } from "react-redux";
 
 import { store } from "@app/store/store";
-import { TableComponent } from "../index";
+import { TasksTableComponent } from "../TasksTableComponent";
 
 // Mock useRouter:
 jest.mock("next/navigation", () => ({
@@ -42,7 +42,7 @@ describe("Render TasksList", () => {
   it("render component", () => {
     const taskTable = render(
       <Provider store={store}>
-        <TableComponent data={mockData} />
+        <TasksTableComponent data={mockData} />
       </Provider>,
     );
     expect(taskTable).toBeDefined();
@@ -51,7 +51,7 @@ describe("Render TasksList", () => {
   it("task details", () => {
     render(
       <Provider store={store}>
-        <TableComponent data={mockData} />
+        <TasksTableComponent data={mockData} />
       </Provider>,
     );
     const btn = screen.getAllByTestId("task-details");
@@ -61,7 +61,7 @@ describe("Render TasksList", () => {
   it("user id cell", () => {
     render(
       <Provider store={store}>
-        <TableComponent data={mockData} />
+        <TasksTableComponent data={mockData} />
       </Provider>,
     );
     const btn = screen.getByTestId("user-id");
