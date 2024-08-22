@@ -1,5 +1,5 @@
 import { FC, useEffect } from "react";
-import { useRouter } from "next/navigation";
+import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { Button, Table, Badge, Pagination } from "flowbite-react";
 import { useDispatch, useSelector } from "react-redux";
 import { ArrowLongUpIcon } from "@heroicons/react/24/solid";
@@ -15,6 +15,10 @@ interface TableProps {
 
 export const TasksTableComponent: FC<TableProps> = ({ data }) => {
   const router = useRouter();
+
+  // const pathName = usePathname();
+  // const searchParams = useSearchParams().get("sort");
+
   const { sortUserId } = useSorting();
   const dispatch = useDispatch();
 
