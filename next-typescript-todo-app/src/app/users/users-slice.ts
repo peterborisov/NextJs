@@ -22,7 +22,7 @@ export const usersSlice = createSlice({
   reducers: {
     addUser: (state, action) => {
       const newUser = {
-        id: uuidv4(),
+        _id: uuidv4(),
         name: action.payload.name,
         email: action.payload.email,
         city: action.payload.city,

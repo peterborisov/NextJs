@@ -3,6 +3,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import { Task } from "@tasks/task-types/task-types";
 import { v4 as uuidv4 } from "uuid";
 import { useData } from "@hooks/useData";
+
 interface TasksState {
   tasks: Task[];
   task: Task;
@@ -17,8 +18,8 @@ interface TasksState {
 export const initialState: TasksState = {
   tasks: [],
   task: {
-    userId: 0,
-    id: 0,
+    _id: "",
+    userId: "",
     title: "",
     completed: false,
   },
@@ -38,8 +39,8 @@ export const tasksSlice = createSlice({
   reducers: {
     addTask: (state, action) => {
       const newTask = {
+        _id: uuidv4(),
         userId: uuidv4(),
-        id: uuidv4(),
         title: action.payload.title,
         completed: false,
       };

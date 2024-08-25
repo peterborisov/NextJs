@@ -9,7 +9,7 @@ import { useData, useNav } from "@hooks/index";
 import { BreadcrumbComponent } from "@app/components";
 
 type Props = {
-  taskId: number;
+  taskId: string;
 };
 
 export const TaskDetails: FC<Props> = ({ taskId }) => {
@@ -18,11 +18,11 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
 
   const task = useSelector((state: RootState) => state.tasksState.task);
 
-  const { userId, id, title, completed } = task;
+  const { _id, userId, title, completed } = task;
 
   const {
     paths: { HOME, TASKS, TASK },
-  } = useNav(id);
+  } = useNav(_id);
 
   useEffect(() => {
     dispatch(fetchTask(taskId));
@@ -39,7 +39,7 @@ export const TaskDetails: FC<Props> = ({ taskId }) => {
       <Card className="mx-auto my-44 w-[40%]">
         <h5 className={styles.h5}>Task Details:</h5>
         <p className={styles.p}>User ID: {userId}</p>
-        <p className={styles.p}>Task ID: {id}</p>
+        <p className={styles.p}>Task ID: {_id}</p>
         <p className={styles.p}>Task Title : {title}</p>
         <p>
           {completed ? (

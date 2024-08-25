@@ -34,11 +34,11 @@ export const TasksTableComponent: FC<TableProps> = ({ data }) => {
   }
 
   const filteredRows = data.filter((task) => {
-    return task.id.toString().includes(filterValue!);
+    return task._id.toString().includes(filterValue!);
   });
 
   const taskDetails = (task: Task) => {
-    router.push(`/tasks/${task.id}`);
+    router.push(`/tasks/${task._id}`);
   };
 
   const handlesSorting = () => {
@@ -65,9 +65,9 @@ export const TasksTableComponent: FC<TableProps> = ({ data }) => {
             onClick={handlesSorting}
             className="flex gap-2"
           >
-            userId <ArrowLongUpIcon className="h-4" />
+            User ID <ArrowLongUpIcon className="h-4" />
           </Table.HeadCell>
-          <Table.HeadCell>ID</Table.HeadCell>
+          <Table.HeadCell>Task ID</Table.HeadCell>
           <Table.HeadCell>Completed</Table.HeadCell>
           <Table.HeadCell align="right">Title</Table.HeadCell>
         </Table.Head>
@@ -75,9 +75,9 @@ export const TasksTableComponent: FC<TableProps> = ({ data }) => {
           {sortUserId(sorting, filteredRows)
             .slice(page * 10, page * 10 + 10)
             .map((task: Task) => (
-              <Table.Row key={task.id}>
+              <Table.Row key={task._id}>
                 <Table.Cell>{task.userId}</Table.Cell>
-                <Table.Cell>{task.id}</Table.Cell>
+                <Table.Cell>{task._id}</Table.Cell>
                 <Table.Cell>
                   {task.completed ? (
                     <Badge color="success">Task completed</Badge>

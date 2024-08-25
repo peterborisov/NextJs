@@ -11,7 +11,7 @@ export const UsersTableComponent: FC<TableProps> = ({ data }) => {
   const router = useRouter();
 
   const userDetails = (user: User) => {
-    router.push(`/users/${user.id}`);
+    router.push(`/users/${user._id}`);
   };
 
   const addNewUser = () => {
@@ -37,7 +37,7 @@ export const UsersTableComponent: FC<TableProps> = ({ data }) => {
         </Table.Head>
         <Table.Body className="divide-y">
           {data.map((user: User) => (
-            <Table.Row key={user.id}>
+            <Table.Row key={user._id}>
               <Table.Cell>{user.name}</Table.Cell>
               <Table.Cell>{user.email}</Table.Cell>
               <Table.Cell>{user.address?.city}</Table.Cell>

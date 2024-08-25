@@ -12,7 +12,7 @@ import { TasksTableComponent } from "@tasks/components/index";
 import { CellItem } from "./components/CellItem";
 
 type Props = {
-  userId: number;
+  userId: string;
 };
 
 export const UserDetails: FC<Props> = ({ userId }) => {
@@ -26,20 +26,20 @@ export const UserDetails: FC<Props> = ({ userId }) => {
 
   const { usersState, tasksState } = useSelector((state: RootState) => state);
 
-  const { id, name, username, email, address, phone, website, company } =
+  const { _id, name, username, email, address, phone, website, company } =
     usersState.user;
   const {
     paths: { HOME, USERS, USER },
   } = useNav(name);
 
   const tasks = tasksState.tasks;
-  const userTasks = tasks.filter((task) => task.userId === +userId);
+  const userTasks = tasks.filter((task) => task.userId === userId);
 
   return (
     <>
       <BreadcrumbComponent breadcrumbItems={[HOME, USERS, USER]} />
       <div className="text-4xl font-bold">{name}</div>
-      <div className="text-2xl font-bold">ID: {id}</div>
+      <div className="text-2xl font-bold">ID: {_id}</div>
       <Card className="mx-auto my-4">
         <div className="flex flex-wrap gap-4">
           <CellItem title="User name" value={username} />

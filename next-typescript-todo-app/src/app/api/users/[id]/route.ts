@@ -1,11 +1,17 @@
 import { NextRequest, NextResponse } from "next/server";
-import { usersUrl } from "@utils/endpoint";
+import dbConnect from "@app/lib/db";
+import { User } from "@app/lib/models";
 
 export async function GET(
   req: NextRequest,
   { params }: { params: { id: number } },
 ) {
-  const res = await fetch(`${usersUrl}/${params.id}`);
-  const data = await res.json();
-  return NextResponse.json({ user: data });
+  try {
+    dbConnect();
+    const data = await User.findById(params.id);
+    return NextResponse.json({ user: data });
+  } catch (err) {
+    console.log(err);
+    throw new Error("Failed to fetch user!");
+  }
 }
