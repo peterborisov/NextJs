@@ -13,6 +13,8 @@ Run `pnpm run dev` to run app locally (`localhost:3000`)
 - tailwindcss - https://tailwindcss.com/docs/guides/nextjs
 - flowbite-react - https://flowbite-react.com/
 - icons - https://heroicons.com/
+- MongoDb - https://www.mongodb.com/products/platform/cloud
+- GraphQL - https://graphql.org/learn/serving-over-http/
 - https://handsonreact.com/docs/react-redux-thunk
 - https://tanstack.com/query/latest/docs/framework/react/overview
 
