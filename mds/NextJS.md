@@ -1,3 +1,5 @@
+### Cheat sheet: https://blog.wrappixel.com/nextjs-cheat-sheet/
+
 **1. What is Next JS?**
 
 - Created by Vercel. React framework that allows for server-side rendering and static site generation.

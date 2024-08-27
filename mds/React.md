@@ -1,3 +1,9 @@
+### Cheat sheet - https://zerotomastery.io/cheatsheets/react-cheat-sheet/
+
+### Patterns - https://javascriptpatterns.vercel.app/patterns/react-patterns/higher-order-component
+
+### Q&A
+
 **1. Building blocks of React**
 
 - **Components**: Reusable blocks of code that return HTML.
@@ -15,7 +21,7 @@
 
 - Lightweight copy of the actual DOM. Manipulating Virtual DOM is more faster.
 
-**4. What are components and their type in React**
+**4. React Components**
 
 - **Functional Components**: Functional components are simply javascript functions.
 - **Class Components**:
@@ -62,11 +68,12 @@
 **12. Hooks**
 
 - Reusable functions that allows you to use state and other React features without writing a class.
-  - **useState**: It allows you to manipulate DOM elements before each render.
-  - **useEffect**: Perform the side effect(action which is not related to current component, table component with data fetching).
-  - **useRef**: Object that hold DOM element or value. Doesn't rerenders if ref data is updated.
+  - **useState**: store component values.
+  - **useEffect**: Create side effect(action which is not related to current component).
+  - **useLayoutEffect** - run immediately after DOM changes
+  - **useRef**: like useState but doesn't rerender component if ref data is updated.
   - **useMemo**: memoize the result of a function.
-  - **useCallback**: memoize callbacks
+  - **useCallback**: memoize callbacks. Prevents functions recreated between re-renders.
   - **useContext**: Allows you to consume context(Context provides a way to pass data through the component tree without having props drilling.) in functional components.
   - **useReducer**: Alternative to useState for managing more complex state logic. It accepts a reducer function and an initial state, returning the current state and a dispatch function to trigger state updates.
 

@@ -6,9 +6,9 @@ describe("useData", () => {
     const { result } = renderHook(() => useData());
 
     await act(async () => {
-      result.current.fetchTask();
+      result.current.fetchTask("1");
       result.current.fetchTasks();
-      result.current.fetchUser();
+      result.current.fetchUser("1");
       result.current.fetchUsers();
     });
   });

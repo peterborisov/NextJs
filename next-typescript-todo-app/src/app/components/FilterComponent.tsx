@@ -44,7 +44,7 @@ export const FilterComponent = () => {
         />
       </div>
       <DropdownComponent />
-      <Button data-testid="add-task" onClick={() => addTask()}>
+      <Button data-testid="add-task" onClick={addTask}>
         Add Task
       </Button>
       <Checkbox

@@ -1,3 +1,7 @@
+### Cheat sheet https://zerotomastery.io/cheatsheets/typescript-cheat-sheet/
+
+### Q&A https://zerotomastery.io/blog/typescript-interview-questions/
+
 https://www.javatpoint.com/typescript-tutorial
 https://www.freecodecamp.org/news/learn-typescript-beginners-guide/
 https://react-typescript-cheatsheet.netlify.app/docs/basic/getting-started/forms_and_events/
@@ -297,19 +301,30 @@ person.name = "Jane";
 
 ### Basic Generics
 
-- Functions
+- Generic Functions - designed to work with different types of data.
 
 ```
-function createPair<S, T>(v1: S, v2: T): [S, T] {
-  return [v1, v2];
+function getFirst<T>(arr: T[]): T | undefined {
+ ...
 }
-console.log(createPair<string, number>('hello', 42)); // ['hello', 42]
+
+const nums = [1, 2, 3];
+const one = getFirst(nums);  // T is `number`
+
+const letters = ["a", "b", "c"];
+const a = getFirst(letters);  // T is `string`
+
+const objects = [{ first: 1 }, { second: 2 }];
+const first = getFirst(objects);  // T is `object`
+
 ```
 
 - Classes
 
 ```
-class NamedValue<T> {}
+class NamedValue<T> {
+  ...
+}
 ```
 
 - Type Aliases
@@ -318,11 +333,38 @@ class NamedValue<T> {}
 ### Utility Types
 
 - Partial
-- Required
+- Required - Make all properties mandatory by removing the question marks from the properties.
+
+```
+type SignUpForm = Required<UserForm>;
+
+```
+
 - Record
-- Omit
-- Pick
+- Omit - Use all properties except the ones listed:
+
+```
+type LoginForm2 = Omit<UserForm, "phoneNumber" | "address" | "agreedToMarketingEmails">;
+
+```
+
+- Pick - Use only the properties listed
+
+```
+type LoginForm = Pick<UserForm, "email" | "password" | "passwordConfirmation">;
+
+```
+
 - Exclude
 - ReturnType
 - Parameters
-- Readonly
+- Readonly - Cannot reassign any properties:
+
+```
+type SubmittedForm = Readonly<UserForm>;
+
+```
+
+### Type Predicates
+
+### Async/Await - asynchronous code in a synchronous way.
