@@ -23,7 +23,7 @@ describe("Render TaskDetails", () => {
   it("render component", () => {
     const form = render(
       <Provider store={store}>
-        <TaskDetails taskId={1} />
+        <TaskDetails taskId={"1"} />
       </Provider>,
     );
     expect(form).toBeDefined();

@@ -4,7 +4,7 @@ import React from "react";
 import { TaskDetails } from "./TaskDetails";
 
 interface Props {
-  params: { id: number };
+  params: { id: string };
 }
 
 const Page = ({ params }: Props) => {

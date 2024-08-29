@@ -2,7 +2,11 @@
 
 Example Tasks application built with Next.js and Typescript
 
+![Home](./public/images/home.png)
+![Users](./public/images/users.png)
+![Tasks](./public/images/tasks.png)
 ![User details](./public/images/user-details.png)
+![Task details](./public/images/task-details.png)
 
 Run `pnpm run dev` to run app locally (`localhost:3000`)
 
