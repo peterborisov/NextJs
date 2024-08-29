@@ -6,7 +6,7 @@ import { Card, Badge } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
 import { useData, useNav } from "@hooks/index";
-import { BreadcrumbComponent } from "@app/components";
+import { BreadcrumbComponent } from "@components/index";
 
 type Props = {
   taskId: string;

@@ -1,10 +1,10 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { BreadcrumbComponent } from "@app/components";
+import { BreadcrumbComponent } from "@components/index";
 
 import type { RootState } from "@app/store/store";
 import { useData, useNav } from "@hooks/index";
-import { UsersTableComponent } from "./UsersTableComponent";
+import { UsersTableComponent } from "./";
 
 export const UsersList = () => {
   const dispatch = useDispatch();

@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { FilterComponent, BreadcrumbComponent } from "@components/index";
 import type { RootState } from "@app/store/store";
 import { useData, useNav } from "@hooks/index";
-import { TasksTableComponent } from "./TasksTableComponent";
+import { TasksTableComponent } from "./";
+
 export const TasksList = () => {
   const dispatch = useDispatch();
   const { fetchTasks } = useData();

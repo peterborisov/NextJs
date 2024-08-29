@@ -5,7 +5,7 @@ import { Button, Label, TextInput, Checkbox } from "flowbite-react";
 import { setFilterValue, setIsChecked } from "@tasks/tasks-slice";
 
 import type { RootState } from "@app/store/store";
-import { DropdownComponent } from "./index";
+import { DropdownComponent } from "./";
 
 export const FilterComponent = () => {
   const router = useRouter();

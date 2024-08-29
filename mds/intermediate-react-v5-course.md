@@ -1,3 +1,8 @@
+### React concept
+
+- One way data flow
+- Declarative vs Imperative
+
 ### Types of React Components
 
 **- Stateless/Presentational/Dumb/Pure Components** - always produce the same output for the same input props and do not have any side effects. Primarily used for rendering UI elements and do not contain any logic or state management.

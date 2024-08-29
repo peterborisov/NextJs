@@ -1,9 +1,10 @@
 "use client";
+import { BarChart } from "@components/index";
 
 const Page = () => {
   return (
     <>
-      <h1 className="text-3xl font-bold underline">App Homepage!</h1>
+      <BarChart />
     </>
   );
 };

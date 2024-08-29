@@ -5,11 +5,13 @@ import { useDispatch, useSelector } from "react-redux";
 import { Card } from "flowbite-react";
 
 import type { RootState } from "@app/store/store";
-import { BreadcrumbComponent } from "@app/components";
 import { useData, useNav } from "@hooks/index";
-import { FilterComponent } from "@components/index";
+import {
+  FilterComponent,
+  BreadcrumbComponent,
+  CellItem,
+} from "@components/index";
 import { TasksTableComponent } from "@tasks/components/index";
-import { CellItem } from "./components/CellItem";
 
 type Props = {
   userId: string;
